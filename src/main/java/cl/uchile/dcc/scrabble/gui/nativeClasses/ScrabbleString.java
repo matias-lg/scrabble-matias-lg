@@ -1,10 +1,10 @@
-package cl.uchile.dcc.scrabble.gui;
+package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
 import java.util.Objects;
 
 public class ScrabbleString {
-    String str;
-    ScrabbleString(String str){
+    private String str;
+    public ScrabbleString(String str){
         this.str = str;
     }
 

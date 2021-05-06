@@ -1,5 +1,5 @@
 package cl.uchile.dcc.scrabble.gui;
 
-public interface INumeric {
-
+public interface INative {
+    String toString();
 }

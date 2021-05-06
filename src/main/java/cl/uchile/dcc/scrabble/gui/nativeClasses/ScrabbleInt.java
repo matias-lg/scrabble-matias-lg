@@ -1,11 +1,13 @@
-package cl.uchile.dcc.scrabble.gui;
+package cl.uchile.dcc.scrabble.gui.nativeClasses;
+
+import cl.uchile.dcc.scrabble.gui.INative;
 
 import java.util.Objects;
 
 /**
  * Tipo elemental int (entero), almacena un int de Java en value
  */
-public class ScrabbleInt implements INative{
+public class ScrabbleInt implements INative {
     private int value;
 
     public ScrabbleInt(int value) {
@@ -17,6 +19,7 @@ public class ScrabbleInt implements INative{
         return this.value;
     }
 
+    @Override
     public String toString(){
         return Integer.toString(getValue());
     }

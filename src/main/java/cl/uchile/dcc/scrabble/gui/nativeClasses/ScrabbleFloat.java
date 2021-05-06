@@ -1,4 +1,6 @@
-package cl.uchile.dcc.scrabble.gui;
+package cl.uchile.dcc.scrabble.gui.nativeClasses;
+
+import cl.uchile.dcc.scrabble.gui.INative;
 
 import java.util.Objects;
 
@@ -16,6 +18,7 @@ public class ScrabbleFloat implements INative {
         return value;
     }
 
+    @Override
     public String toString(){
         return Double.toString(value);
     }
