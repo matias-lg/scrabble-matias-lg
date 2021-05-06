@@ -1,5 +1,2 @@
-package cl.uchile.dcc.scrabble.gui;
-
-public interface INumeric {
-
+package cl.uchile.dcc.scrabble.gui;public interface INumeric {
 }
