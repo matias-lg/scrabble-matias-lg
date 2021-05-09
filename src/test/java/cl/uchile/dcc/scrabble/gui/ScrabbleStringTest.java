@@ -18,19 +18,18 @@ public class ScrabbleStringTest {
     private final int STR_SIZE = 100;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         seed = new Random().nextInt();
         rng = new Random(seed);
         randomString = random(STR_SIZE, 0, Character.MAX_CODE_POINT, true, true, null, rng);
         testScrabbleString = new ScrabbleString(randomString);
     }
+
     @RepeatedTest(20)
-    public void constructorTest(){
+    public void constructorTest() {
         /* Se crea un ScrabbleString con string igual al de setUp */
         var expectedScrabbleString = new ScrabbleString(randomString);
         /* String distinto al de setup */
-        seed = new Random().nextInt();
-        rng = new Random(seed);
         String difRandomString;
         /* Se crea un nuevo string en caso de ser igual al creado en setUp */
         do {
@@ -44,5 +43,18 @@ public class ScrabbleStringTest {
 
         assertEquals(expectedScrabbleString.hashCode(), testScrabbleString.hashCode());
         assertNotEquals(notExpectedScrabbleString.hashCode(), testScrabbleString.hashCode());
+    }
+
+    @RepeatedTest(20)
+    public void asScrabbleStringTest() {
+        String otherstr;
+        do {
+            otherstr = random(STR_SIZE, 0, Character.MAX_CODE_POINT, true, true, null, rng);
+
+        } while (randomString.equals(otherstr));
+        var otherScrabbleString = new ScrabbleString(otherstr);
+        assertEquals(testScrabbleString.asScrabbleString(), testScrabbleString);
+        assertNotEquals(otherScrabbleString, testScrabbleString.asScrabbleString());
+        assertEquals(new ScrabbleString(otherstr), otherScrabbleString.asScrabbleString());
     }
 }

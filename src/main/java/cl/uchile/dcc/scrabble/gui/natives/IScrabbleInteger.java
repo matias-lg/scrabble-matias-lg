@@ -1,12 +1,8 @@
-package cl.uchile.dcc.scrabble.gui;
+package cl.uchile.dcc.scrabble.gui.natives;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleString;
-
-/*
-TODO implementar en Binario e Int
+/**
+ * Operaciones que numeros que no son Floats deberian ser capaces de realizar
+ * TODO implementar en Binario e Int
  */
 public interface IScrabbleInteger extends INumber {
 //    public ScrabbleInt asScrabbleInt();
