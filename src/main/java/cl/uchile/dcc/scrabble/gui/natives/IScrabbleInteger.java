@@ -1,7 +1,7 @@
 package cl.uchile.dcc.scrabble.gui.natives;
 
 /**
- * Operaciones que numeros que no son Floats deberian ser capaces de realizar
+ * Operations that numbers that aren't float should do
  * TODO implementar en Binario e Int
  */
 public interface IScrabbleInteger extends INumber {

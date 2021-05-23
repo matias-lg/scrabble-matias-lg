@@ -5,33 +5,33 @@ import cl.uchile.dcc.scrabble.gui.natives.ScrabbleNative;
 import java.util.Objects;
 
 /**
- * Tipo booleano nativo de Scrabble
+ * Native Scrabble Boolean type
  */
 public class ScrabbleBool extends ScrabbleNative {
     boolean value;
 
     /**
-     * Almacena un bool de java en una instancia de ScrabbleBool
+     * Stores a Java bool
      *
-     * @param value bool de Java a almacenar
+     * @param value bool to store
      */
     public ScrabbleBool(boolean value) {
         this.value = value;
     }
 
     /**
-     * Obtener el bool guardado en el objeto
+     * Gets stored bool
      *
-     * @return bool almacenado
+     * @return bool stored
      */
     public boolean getValue() {
         return this.value;
     }
 
     /**
-     * Obtener el bool guardado en el objeto en forma de String
+     * Gets the stored bool as a String
      *
-     * @return String "true" si se almacena un bool: true. "false" si se almacena un bool false
+     * @return String "true" if bool: true is stored. "false" if storing a false bool
      */
     @Override
     public String toString() {
@@ -39,10 +39,10 @@ public class ScrabbleBool extends ScrabbleNative {
     }
 
     /**
-     * Comparar dos ScrabbleBool a traves del valor que almacenan
+     * Compare two ScrabbleBool by their stored bools
      *
-     * @param o Objeto a comparar, si es un ScrabbleBool debera almacenar el mismo valor
-     * @return true si ambos ScrabbleBool guardan el mismo bool, sino, false
+     * @param o Object to compare, if its a ScrabbleBool it should store the same value
+     * @return true if both store the same bool
      */
     @Override
     public boolean equals(Object o) {
@@ -53,9 +53,9 @@ public class ScrabbleBool extends ScrabbleNative {
     }
 
     /**
-     * Hash representativo del ScrabbleBool
+     * Representative Hash of a ScrabbleBool
      *
-     * @return hash generado a partir del bool almacenado en el ScrabbleBool
+     * @return hash created using the stored bool
      */
     @Override
     public int hashCode() {
@@ -63,9 +63,9 @@ public class ScrabbleBool extends ScrabbleNative {
     }
 
     /**
-     * Genera un ScrabbleString a partir de un ScrabbleBool, este almacena el bool convertido a String
+     * Creates a new ScrabbleString which contains the stored bool as a String
      *
-     * @return nuevo ScrabbleString que contiene el bool almacenado en String
+     * @return new ScrabbleString storing a bool as a String "true" or "false"
      */
     public ScrabbleString asScrabbleString() {
         return new ScrabbleString(toString());

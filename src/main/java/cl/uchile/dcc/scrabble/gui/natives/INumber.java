@@ -3,20 +3,18 @@ package cl.uchile.dcc.scrabble.gui.natives;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleFloat;
 
 /**
- * Esta interfaz implementa las operaciones matemáticas básicas que los numeros nativos de Scrabble deberian ser capaces
- * de realizar
+ * This interface implements every operation which a native Scrabble number should be able to do
  * TODO implementar en ScrabbleInt, ScrabbleFloat, ScrabbleBinary
  */
 public interface INumber extends INative {
     /* Transformaciones */
 
     /**
-     * Convierte un Número en float
+     * Converts a Number to float
      *
-     * @return un nuevo ScrabbleFloat que almacena el valor encapsulado por el objeto que llamó al metodo
-     * convertido a float
+     * @return new ScrabbleFloat containing caller Number's value as a double
      */
-    public ScrabbleFloat asScrabbleFloat();
+    public INumber asScrabbleFloat();
     /* Suma */
 //    public ScrabbleNumber sumWithInt();
 //    public ScrabbleNumber sumWithBinary();

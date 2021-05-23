@@ -5,34 +5,34 @@ import cl.uchile.dcc.scrabble.gui.natives.ScrabbleNative;
 import java.util.Objects;
 
 /**
- * String nativo de Scrabble, almacena un String de java
+ * Native Scrabble String, stores a Java String
  */
 public class ScrabbleString extends ScrabbleNative {
     private String value;
 
     /**
-     * Encapsula un String en una instancia de ScrabbleString
+     * Stores a String
      *
-     * @param str String a almacenar en el objeto
+     * @param str String to store in the object
      */
     public ScrabbleString(String str) {
         this.value = str;
     }
 
     /**
-     * Obtener el String almacenado en el objeto
+     * Gets the stored String
      *
-     * @return String almacenado en la instancia de ScrabbleString
+     * @return String stored in the ScrabbleString
      */
     public String getValue() {
         return value;
     }
 
     /**
-     * Comparar dos ScrabbleString a traves del valor que guardan
+     * Compares two ScrabbleString by their stored Strings
      *
-     * @param o objeto a comparar
-     * @return true Si los dos ScrabbleString guardan el mismo string, sino, false
+     * @param o Object to compare with
+     * @return true if both are ScrabbleString and store the same String
      */
     @Override
     public boolean equals(Object o) {
@@ -43,9 +43,9 @@ public class ScrabbleString extends ScrabbleNative {
     }
 
     /**
-     * Obtener un hash del ScrabbleString
+     * Creates a hash from a ScrabbleString instance
      *
-     * @return Hash representativo del ScrabbleString generado a partir del String almacenado
+     * @return Representative hash of a ScrabbleString created from its stored String
      */
     @Override
     public int hashCode() {
@@ -53,9 +53,9 @@ public class ScrabbleString extends ScrabbleNative {
     }
 
     /**
-     * Obtener una copia de un ScrabbleString
+     * Creates a copy of a ScrabbleString
      *
-     * @return nuevo ScrabbleString almacenando el mismo String que el almacenado en quien llamó al método
+     * @return new ScrabbleString storing the same String
      */
     public ScrabbleString asScrabbleString() {
         return new ScrabbleString(this.value);

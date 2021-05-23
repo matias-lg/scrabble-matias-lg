@@ -6,31 +6,31 @@ import cl.uchile.dcc.scrabble.gui.natives.ScrabbleNumber;
 import java.util.Objects;
 
 /**
- * Tipo elemental int (entero), almacena un int de Java en value
+ * Native Scrabble int, stores a Java int
  */
 public class ScrabbleInt extends ScrabbleNumber implements IScrabbleInteger {
     private int value;
 
     /**
-     * Tipo entero nativo de Scrabble
+     * Native Scrabble int
      *
-     * @param value numero entero a almacenar
+     * @param value int to store
      */
     public ScrabbleInt(int value) {
         this.value = value;
     }
 
     /**
-     * @return el valor encapsulado en la clase
+     * @return encapsulated int
      */
     public int getValue() {
         return this.value;
     }
 
     /**
-     * Convierte el entero encapsulado por la clase a un String nativo de Java
+     * Converts the stored int to a String
      *
-     * @return String del entero almacenado en value
+     * @return String from the int stored in value
      */
     @Override
     public String toString() {
@@ -38,10 +38,10 @@ public class ScrabbleInt extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * Metodo para comparar dos ScrabbleInt
+     * Compares two ScrabbleInt
      *
-     * @param o objeto a comparar con el ScrabbleInt que llamó al método
-     * @return true si se recibe un ScrabbleInt con el mismo valor almacenado, false si no
+     * @param o Object to compare with
+     * @return true if its compared with a ScrabbleInt which stores the same int
      */
     @Override
     public boolean equals(Object o) {
@@ -52,9 +52,9 @@ public class ScrabbleInt extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * obtener Hash del objeto considerando el valor que almacena
+     * Generates Hash from a ScrabbleInt using its stored value
      *
-     * @return hash generado a través del valor almacenado por el objeto
+     * @return hash created from the stored int
      */
     @Override
     public int hashCode() {
@@ -62,9 +62,9 @@ public class ScrabbleInt extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * Transforma un ScrabbleInt a un ScrabbleString que almacena un String representativo del int almacenado.
+     * Transforms a ScrabbleInt to a ScrabbleString which stores the current int as a String
      *
-     * @return ScrabbleString que contiene el numero entero encapsulado en String
+     * @return ScrabbleString which stores the current int as a String
      */
     public ScrabbleString asScrabbleString() {
         String strValue = Integer.toString(this.getValue());
@@ -72,18 +72,18 @@ public class ScrabbleInt extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * Transforma ScrabbleInt a ScrabbleFloat guardando un float equivalente al numero entero
+     * Transforms a ScrabbleInt to ScrabbleFloat storing the current saved int casted as a double
      *
-     * @return ScrabbleFloat que guarda el entero transformado a double
+     * @return ScrabbleFloat which stores the current int as a double
      */
     public ScrabbleFloat asScrabbleFloat() {
         return new ScrabbleFloat(this.getValue());
     }
 
     /**
-     * Devuelve una copia del ScrabbleInt
+     * Creates a copy of a ScrabbleInt
      *
-     * @return nuevo ScrabbleInt almacenando el mismo valor
+     * @return new ScrabbleInt storing the same value
      */
     public ScrabbleInt asScrabbleInt() {
         return new ScrabbleInt(this.getValue());

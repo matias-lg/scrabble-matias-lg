@@ -6,43 +6,43 @@ import cl.uchile.dcc.scrabble.gui.natives.ScrabbleNumber;
 import java.util.Objects;
 
 /**
- * Binario nativo de Scrabble
+ * Native Scrabble Binary
  */
 public class ScrabbleBinary extends ScrabbleNumber implements IScrabbleInteger {
     private String value;
 
     /**
-     * Guarda un String de numeros binarios, ej: "0101010101"
+     * Stores a string which represents a binary number, ej: "0101010101"
      *
-     * @param value String que contiene solamente 0 o 1, representa un numero binario
+     * @param value String of only "1"s and "0"s
      */
     public ScrabbleBinary(String value) {
         this.value = value;
     }
 
     /**
-     * Obtener el binario almacenado en forma de String
+     * Gets the stored binary as a String
      *
-     * @return String del numero binario guardado
+     * @return String of the stored binary
      */
     public String getValue() {
         return value;
     }
 
     /**
-     * Obtiene el binario almacenado en forma de String
+     * Gets the stored binary as a string
      *
-     * @return String del numero binario guardado
+     * @return String of the stored binary
      */
     public String toString() {
         return this.value;
     }
 
     /**
-     * Comparar dos ScrabbleBinary a traves del String que guardan
+     * Compare two ScrabbleBinary by their encapsulated String
      *
-     * @param o Objeto a comparar
-     * @return true si se compara con un ScrabbleBinary que guarde el mismo String binario, sino, false
+     * @param o Object to compare
+     * @return true if both are ScrabbleBinary and store the same string, else false
      */
     @Override
     public boolean equals(Object o) {
@@ -53,9 +53,9 @@ public class ScrabbleBinary extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * Hash representativo del ScrabbleBinary generado a traves del string que guarda
+     * Hash that represents the object, created using the stored String
      *
-     * @return hash del string almacenado
+     * @return hash of stored binary String
      */
     @Override
     public int hashCode() {
@@ -63,15 +63,15 @@ public class ScrabbleBinary extends ScrabbleNumber implements IScrabbleInteger {
     }
 
     /**
-     * Genera un ScrabbleString a partir del valor almacenado en el ScrabbleBinary
+     * Creates a new ScrabbleString that stores the binary contained in *this*
      *
-     * @return nuevo ScrabbleString que guarda el String de numero binario
+     * @return new ScrabbleString that stores the currently stored binary String
      */
     public ScrabbleString asScrabbleString() {
         return new ScrabbleString(this.value);
     }
 
-    /* Para entrega 2*/
+    /* TODO 2*/
     public ScrabbleFloat asScrabbleFloat() {
         return null;
     }
