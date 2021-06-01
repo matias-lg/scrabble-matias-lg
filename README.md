@@ -14,7 +14,7 @@ _University of Chile_.
 ---
 
 At the moment all the native types of Scrabble have been implemented with all their methods and tests.
-All operations works as one would expect (+, -, *, /, AND, OR, NOT), this operations return the type of the left operand if possible. This methods have been implemented using *double dispatch*   
+All operations works as one would expect (+, -, *, /, AND, OR, NOT), this operations return the type of the left operand if possible. This methods have been implemented using *double dispatch*. 
 
 
 
