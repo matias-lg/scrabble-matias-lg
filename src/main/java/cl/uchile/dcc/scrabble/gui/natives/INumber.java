@@ -1,30 +1,35 @@
 package cl.uchile.dcc.scrabble.gui.natives;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.ScrabbleFloat;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 
 /**
  * This interface implements every operation which a native Scrabble number should be able to do
- * TODO implementar en ScrabbleInt, ScrabbleFloat, ScrabbleBinary
  */
 public interface INumber extends INative {
-    /* Transformaciones */
 
-    /**
-     * Converts a Number to float
-     *
-     * @return new ScrabbleFloat containing caller Number's value as a double
-     */
-    public INumber asScrabbleFloat();
-    /* Suma */
-//    public ScrabbleNumber sumWithInt();
-//    public ScrabbleNumber sumWithBinary();
-    /* Resta */
-//    public ScrabbleNumber subsWithInt();
-//    public ScrabbleNumber subsWithBinary();
-    /* Producto */
-//    public ScrabbleNumber prodWithInt();
-//    public ScrabbleNumber prodWithBinary();
-    /* division */
-//    public ScrabbleNumber divWithInt();
-//    public ScrabbleNumber divWithBinary();
+  /* Transformations */
+  SFloat toSFloat();
+  /* Operations */
+//  INumber add(INumber num);
+//  INumber subs(INumber num);
+//  INumber mult(INumber num);
+//  INumber div(INumber num);
+
+  /*Methods for Double Dispatch implementation of above methods */
+  INumber sumWithInt(SInt num);
+
+  INumber sumWithFloat(SFloat num);
+
+  INumber subsWithInt(SInt num);
+
+  INumber subsWithFloat(SFloat num);
+
+  INumber multWithInt(SInt num);
+
+  INumber multWithFloat(SFloat num);
+
+  INumber divWithInt(SInt num);
+
+  INumber divWithFloat(SFloat num);
 }

@@ -16,21 +16,21 @@ import javafx.stage.Stage;
  */
 public class Scrabble extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+  public static void main(String[] args) {
+    launch(args);
+  }
 
-    @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Final reality");
+  @Override
+  public void start(Stage primaryStage) {
+    primaryStage.setTitle("Final reality");
 
-        Label label = new Label("This will be an app sometime");
-        label.setAlignment(Pos.CENTER);
+    Label label = new Label("This will be an app sometime");
+    label.setAlignment(Pos.CENTER);
 
-        // This sets the size of the Scene to be 400px wide, 200px high
-        Scene scene = new Scene(label, 400, 200);
-        primaryStage.setScene(scene);
+    // This sets the size of the Scene to be 400px wide, 200px high
+    Scene scene = new Scene(label, 400, 200);
+    primaryStage.setScene(scene);
 
-        primaryStage.show();
-    }
+    primaryStage.show();
+  }
 }
