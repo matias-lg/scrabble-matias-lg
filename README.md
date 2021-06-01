@@ -13,4 +13,5 @@ _University of Chile_.
 
 ---
 
-**The rest of the documentation is left for the users of this template to complete**
+At the moment all the native types of Scrabble have been implemented with all their methods and tests.
+All operations works as expected (+, -, *, /), some thing to consider: For SBinary to work as intended you need to pass a 32 byte binary as a String using two's complement, if there's less than 32 characters all the remaining will be filled with zeros, this means that `SBinary("1")` equals to decimal "1". Also `SBinary("11111111111111111111111111111111")` equals to decimal "-1".
