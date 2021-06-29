@@ -1,4 +1,4 @@
-package cl.uchile.dcc.scrabble.gui;
+package cl.uchile.dcc.scrabble.gui.NativeTypesTests;
 
 
 import static org.apache.commons.lang3.RandomStringUtils.random;
@@ -9,9 +9,11 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.INative;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 /*
 Test para la clase SInt y sus metodos
@@ -122,6 +124,12 @@ public class SFloatTest {
     assertEquals(new SFloat(randomDouble / randomInt),randomSF.div(randomSI));
     assertEquals(new SFloat(randomDouble / Integer.parseInt(randomBin, 2)),randomSF.div(randomSB));
     assertEquals(new SFloat(randomDouble / testDouble),randomSF.div(testSFloat));
+  }
+
+  @Test
+  public void evalTest() {
+    SFloat test = new SFloat(1);
+    assertEquals(test, test.eval());
   }
 
 }

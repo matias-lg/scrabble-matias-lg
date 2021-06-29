@@ -1,12 +1,14 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.INumber;
+import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 import java.util.Objects;
 
 /**
  * float class of Scrabble, stores a Java double
  */
-public class SFloat implements INumber {
+public class SFloat extends AbstractNative implements INumberOperable {
 
   private double value;
 

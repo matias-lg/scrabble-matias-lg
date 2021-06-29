@@ -1,15 +1,18 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.IInteger;
+import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.INumber;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.operations.IIntegerOperable;
 import java.util.Objects;
 
 /**
  * Native Scrabble Binary
  */
-public class SBinary implements IInteger, Ilogical {
+public class SBinary extends AbstractNative implements IIntegerOperable, Ilogical {
 
   private String value;
 
@@ -142,7 +145,7 @@ public class SBinary implements IInteger, Ilogical {
    * @param num number to add
    * @return sum of two numbers (SBinary when possible)
    */
-  public IInteger add(IInteger num) {
+  public INumber add(IInteger num) {
     return num.sumWithBinary(this);
   }
 
@@ -517,4 +520,5 @@ public class SBinary implements IInteger, Ilogical {
     }
     return new SBinary(result.toString());
   }
+
 }

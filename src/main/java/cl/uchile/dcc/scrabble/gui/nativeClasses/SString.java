@@ -1,12 +1,13 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import java.util.Objects;
 
 /**
  * Native Scrabble String, stores a Java String
  */
-public class SString implements INative {
+public class SString extends AbstractNative implements INative {
 
   private String value;
 

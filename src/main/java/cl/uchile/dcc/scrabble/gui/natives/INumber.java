@@ -11,10 +11,7 @@ public interface INumber extends INative {
   /* Transformations */
   SFloat toSFloat();
   /* Operations */
-//  INumber add(INumber num);
-//  INumber subs(INumber num);
-//  INumber mult(INumber num);
-//  INumber div(INumber num);
+
 
   /*Methods for Double Dispatch implementation of above methods */
   INumber sumWithInt(SInt num);

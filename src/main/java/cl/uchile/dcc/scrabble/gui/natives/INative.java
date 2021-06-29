@@ -1,11 +1,12 @@
 package cl.uchile.dcc.scrabble.gui.natives;
 
+import cl.uchile.dcc.scrabble.gui.AST.INode;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 
 /**
  * This interface is implemented by every Native Scrabble Class: String, Number and Boolean
  */
-public interface INative {
+public interface INative extends INode {
 
   /**
    * Returns the stored value as a String

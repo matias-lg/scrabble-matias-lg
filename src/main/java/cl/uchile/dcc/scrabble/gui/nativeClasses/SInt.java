@@ -1,13 +1,15 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.IInteger;
 import cl.uchile.dcc.scrabble.gui.natives.INumber;
+import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 import java.util.Objects;
 
 /**
  * Native Scrabble int, stores a Java int
  */
-public class SInt implements IInteger {
+public class SInt extends AbstractNative implements IInteger, INumberOperable {
 
   private int value;
 
