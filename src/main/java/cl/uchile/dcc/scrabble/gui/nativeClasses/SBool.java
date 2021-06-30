@@ -70,9 +70,10 @@ public class SBool extends AbstractNative implements INative, Ilogical {
 
   /**
    * Creates a new equivalent SBool
+   *
    * @return new SBool containing same boolean value
    */
-  public SBool toSBool(){
+  public SBool toSBool() {
     return new SBool(this.value);
   }
 
@@ -87,6 +88,7 @@ public class SBool extends AbstractNative implements INative, Ilogical {
 
   /**
    * Creates new SString containing sum of string and saved value as string
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */
@@ -97,6 +99,7 @@ public class SBool extends AbstractNative implements INative, Ilogical {
 
   /**
    * Creates a new SBool containing the negation of current SBool
+   *
    * @return new SBool containing the negation of current SBool
    */
   @Override

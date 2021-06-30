@@ -7,41 +7,45 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
-public class Add extends OpNode {
+public class Or extends OpNode {
 
-  public Add(SString leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INumberOperable leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(SBinary leftChild,
-      INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(SBool leftChild,
-      INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INode leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INode leftChild, INode rightChild, State state) {
+  public Or(INode leftChild,
+      INode rightChild,
+      State state) {
     super(leftChild, rightChild, state);
   }
 
+  public Or(SString leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Or(INumberOperable leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Or(SBinary leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Or(SBool leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Or(INode leftChild, INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
   /**
-   * Sums left and right childs, evaluating them first
+   * Logical OR between left and right childs, evaluating them first
    *
-   * @return New INative containing the result of adding left and right childs
+   * @return New INative containing the result of logical OR of left and right childs
    */
   @Override
   public INative eval() {
-    return this.state.add(getLeftChild(), getRightChild());
+    return (INative) this.state.or(getLeftChild(), getRightChild());
   }
 }

@@ -21,8 +21,10 @@ public interface INative extends INode {
    * @return SString which encapsulates a String of the value from caller INative
    */
   INative toSString();
+
   /**
    * Result of adding a String with an Inative
+   *
    * @param str String to sum with
    */
   SString sumWithString(SString str);

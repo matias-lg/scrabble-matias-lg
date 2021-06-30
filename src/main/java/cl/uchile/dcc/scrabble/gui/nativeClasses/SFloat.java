@@ -78,6 +78,7 @@ public class SFloat extends AbstractNative implements INumberOperable {
 
   /**
    * Creates new SString containing sum of string and saved value as string
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */

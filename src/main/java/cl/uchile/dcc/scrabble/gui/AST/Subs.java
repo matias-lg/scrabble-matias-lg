@@ -7,41 +7,43 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
-public class Add extends OpNode {
+public class Subs extends OpNode {
 
-  public Add(SString leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INumberOperable leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(SBinary leftChild,
-      INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(SBool leftChild,
-      INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INode leftChild, INode rightChild) {
-    super(leftChild, rightChild);
-  }
-
-  public Add(INode leftChild, INode rightChild, State state) {
+  public Subs(INode leftChild, INode rightChild, State state) {
     super(leftChild, rightChild, state);
   }
 
+  public Subs(SString leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Subs(INumberOperable leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Subs(SBinary leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Subs(SBool leftChild,
+      INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
+  public Subs(INode leftChild, INode rightChild) {
+    super(leftChild, rightChild);
+  }
+
   /**
-   * Sums left and right childs, evaluating them first
+   * Substracts left and right childs, evaluating them first
    *
-   * @return New INative containing the result of adding left and right childs
+   * @return New INative containing the result of substraction of left and right childs
    */
   @Override
   public INative eval() {
-    return this.state.add(getLeftChild(), getRightChild());
+    return this.state.subs(getLeftChild(), getRightChild());
   }
 }

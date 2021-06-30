@@ -72,12 +72,13 @@ public class SString extends AbstractNative implements INative {
    * @param nat INative to sum with
    * @return new SString containing sum of strings
    */
-  public SString add(INative nat){
+  public SString add(INative nat) {
     return nat.sumWithString(this);
   }
 
   /**
    * Creates new SString containing sum of two strings
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */
