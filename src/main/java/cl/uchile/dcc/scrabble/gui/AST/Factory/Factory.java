@@ -110,10 +110,14 @@ public class Factory {
   }
 
   /**
-   * Evaluates stored AST
+   * Evaluates stored AST and save it to memory
    * @return Evaluates stored AST and returns the resulting INative
    */
   public INative evalAst(){
-    return this.AST.eval();
+    INative tmp = this.AST.eval();
+    if (!memory.isIn(tmp)){
+      writeToMemory(tmp);
+    }
+    return memory.get(tmp);
   }
 }
