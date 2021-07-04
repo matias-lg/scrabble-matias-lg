@@ -52,7 +52,7 @@ public class BoolState implements State {
    * @return new SBinary containing the result of the logical OR of nodes
    */
   public Ilogical or(INode left, INode right) {
-    var leftBool = (SBinary) left;
+    var leftBool = (SBool) left;
     try {
       Ilogical rightBool = (Ilogical) right;
       return leftBool.or(rightBool);

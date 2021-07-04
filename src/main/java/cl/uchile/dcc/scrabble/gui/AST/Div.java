@@ -9,9 +9,6 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
 public class Div extends OpNode {
 
-  public Div(INode leftChild, INode rightChild, State state) {
-    super(leftChild, rightChild, state);
-  }
 
   public Div(SString leftChild,
       INode rightChild) {

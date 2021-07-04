@@ -9,11 +9,6 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
 public class Mult extends OpNode {
 
-  public Mult(INode leftChild,
-      INode rightChild,
-      State state) {
-    super(leftChild, rightChild, state);
-  }
 
   public Mult(SString leftChild,
       INode rightChild) {

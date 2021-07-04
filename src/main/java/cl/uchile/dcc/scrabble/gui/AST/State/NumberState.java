@@ -19,7 +19,6 @@ public class NumberState implements State {
       return left.add(right);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
-      System.out.println("We are in error dawg");
       return null;
     }
   }

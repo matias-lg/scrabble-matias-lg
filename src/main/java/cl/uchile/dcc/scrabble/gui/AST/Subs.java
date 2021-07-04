@@ -9,10 +9,6 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
 public class Subs extends OpNode {
 
-  public Subs(INode leftChild, INode rightChild, State state) {
-    super(leftChild, rightChild, state);
-  }
-
   public Subs(SString leftChild,
       INode rightChild) {
     super(leftChild, rightChild);

@@ -20,12 +20,6 @@ public abstract class OpNode implements INode {
   protected INode rightChild;
   protected State state;
 
-  /* Constructor for testing purposes */
-  public OpNode(INode leftChild, INode rightChild, State state) {
-    this.state = state;
-    this.leftChild = leftChild;
-    this.rightChild = rightChild;
-  }
 
   /* left is SString, set state to StringState */
   public OpNode(SString leftChild, INode rightChild) {
@@ -69,14 +63,34 @@ public abstract class OpNode implements INode {
     }
   }
 
+  /**
+   * Sets a state for OpNode instance
+   * @param state state to set the OpNode to
+   */
+  public void setState(State state){
+    this.state = state;
+  }
+
+  /**
+   * Gets the current state of the node
+   * @return Node's state
+   */
   public State getState() {
     return this.state;
   }
 
+  /**
+   * Gets Node's left child
+   * @return Node's left child
+   */
   public INode getLeftChild() {
     return leftChild;
   }
 
+  /**
+   * Gets Node's right child
+   * @return Node's right child
+   */
   public INode getRightChild() {
     return rightChild;
   }

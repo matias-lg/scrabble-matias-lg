@@ -6,7 +6,6 @@ import cl.uchile.dcc.scrabble.gui.natives.IInteger;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
 
-/* TODO Add boolean operations */
 public class BinaryState implements State {
 
   /**
@@ -18,7 +17,7 @@ public class BinaryState implements State {
   public INative add(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      IInteger rightInt = (IInteger) right;
+      IInteger rightInt = (IInteger) right.eval();
       return leftBin.add(rightInt);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
@@ -35,7 +34,7 @@ public class BinaryState implements State {
   public INative subs(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      IInteger rightInt = (IInteger) right;
+      IInteger rightInt = (IInteger) right.eval();
       return leftBin.subs(rightInt);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
@@ -52,7 +51,7 @@ public class BinaryState implements State {
   public INative div(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      IInteger rightInt = (IInteger) right;
+      IInteger rightInt = (IInteger) right.eval();
       return leftBin.div(rightInt);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
@@ -69,7 +68,7 @@ public class BinaryState implements State {
   public INative mult(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      IInteger rightInt = (IInteger) right;
+      IInteger rightInt = (IInteger) right.eval();
       return leftBin.mult(rightInt);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
@@ -85,7 +84,7 @@ public class BinaryState implements State {
   public Ilogical and(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      Ilogical rightBool = (Ilogical) right;
+      Ilogical rightBool = (Ilogical) right.eval();
       return leftBin.and(rightBool);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {
@@ -101,7 +100,7 @@ public class BinaryState implements State {
   public Ilogical or(INode left, INode right) {
     var leftBin = (SBinary) left;
     try {
-      Ilogical rightBool = (Ilogical) right;
+      Ilogical rightBool = (Ilogical) right.eval();
       return leftBin.or(rightBool);
     }
     /* Incompatible operations return null */ catch (ClassCastException e) {

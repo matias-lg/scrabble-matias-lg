@@ -6,8 +6,14 @@ import cl.uchile.dcc.scrabble.gui.AST.Div;
 import cl.uchile.dcc.scrabble.gui.AST.INode;
 import cl.uchile.dcc.scrabble.gui.AST.Mult;
 import cl.uchile.dcc.scrabble.gui.AST.Not;
+import cl.uchile.dcc.scrabble.gui.AST.OpNode;
 import cl.uchile.dcc.scrabble.gui.AST.Or;
 import cl.uchile.dcc.scrabble.gui.AST.Subs;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
 import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
@@ -15,83 +21,132 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 public class OpState implements State {
 
   /**
+   * OpState must be able to switch user's state to calculate node
+   * @param stateHandler Operation Node to change state
+   * @param child INative to change state accordingly
+   */
+  public static void switchState(OpNode stateHandler, INative child){
+    /* FeelsLike código frágil :[ */
+    if (child instanceof SBinary){
+      stateHandler.setState(new BinaryState());
+    }
+    if (child instanceof SBool){
+      stateHandler.setState(new BoolState());
+    }
+    if (child instanceof SInt || child instanceof SFloat){
+      stateHandler.setState(new NumberState());
+    }
+    if (child instanceof SString){
+      stateHandler.setState(new StringState());
+    }
+  }
+
+  /**
+   * Calculates the addition of two Nodes
    * @param leftChild  right child node, if this is called it should NOT be a INative
    * @param rightChild right child node, if this is called it should NOT be a INative
    * @return INative of evaluating the sum of two nodes, if operation is invalid NULL
    */
   public INative add(INode leftChild, INode rightChild) {
-    /* OpNode already evaluated leftChild and rightChild - We can downcast
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     /* Delegate task to Add State */
-    var tmp = new Add(leftChild.eval(), rightChild.eval());
-    /* For some reason copying from tmp nets the correct type */
-    var calculator = new Add(tmp.getLeftChild(), tmp.getRightChild());
-    return calculator.eval();
+    var tmp = new Add(left, right);
+    /* Switch state to finally get value */
+    OpState.switchState(tmp, left);
+    return tmp.eval();
   }
 
   /**
-   * @param left  right child node, if this is called it should NOT be a INative
-   * @param right right child node, if this is called it should NOT be a INative
+   * Calculates the substraction of two Nodes
+   * @param leftChild  right child node, if this is called it should NOT be a INative
+   * @param rightChild right child node, if this is called it should NOT be a INative
    * @return INative of evaluating the substraction of two nodes, if operation is invalid NULL
    */
   @Override
-  public INative subs(INode left, INode right) {
+  public INative subs(INode leftChild, INode rightChild) {
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     var tmp = new Subs(left, right);
-    var calculator = new Subs(tmp.getLeftChild(), tmp.getRightChild());
-    return calculator.eval();
+    OpState.switchState(tmp, left);
+    return tmp.eval();
   }
 
   /**
-   * @param left  right child node, if this is called it should NOT be a INative
-   * @param right right child node, if this is called it should NOT be a INative
+   * Calculates the division of two Nodes
+   * @param leftChild  right child node, if this is called it should NOT be a INative
+   * @param rightChild right child node, if this is called it should NOT be a INative
    * @return INative of evaluating the division of two nodes, if operation is invalid NULL
    */
   @Override
-  public INative div(INode left, INode right) {
+  public INative div(INode leftChild, INode rightChild) {
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     var tmp = new Div(left, right);
-    var calculator = new Div(tmp.getLeftChild(), tmp.getRightChild());
-    return calculator.eval();
+    OpState.switchState(tmp, left);
+    return tmp.eval();
   }
 
   /**
-   * @param left  right child node, if this is called it should NOT be a INative
-   * @param right right child node, if this is called it should NOT be a INative
+   *  Calculates the product of two nodes
+   * @param leftChild  right child node, if this is called it should NOT be a INative
+   * @param rightChild right child node, if this is called it should NOT be a INative
    * @return INative of evaluating the product of two nodes, if operation is invalid NULL
    */
   @Override
-  public INative mult(INode left, INode right) {
+  public INative mult(INode leftChild, INode rightChild) {
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     var tmp = new Mult(left, right);
-    var calculator = new Mult(tmp.getLeftChild(), tmp.getRightChild());
-    return calculator.eval();
+    OpState.switchState(tmp, left);
+    return tmp.eval();
   }
 
   /**
-   * @param left  right child node, if this is called it should NOT be a INative
-   * @param right right child node, if this is called it should NOT be a INative
+   * Applies logical AND to two Nodes
+   * @param leftChild  right child node, if this is called it should NOT be a INative
+   * @param rightChild right child node, if this is called it should NOT be a INative
    * @return Ilogical of evaluating the logical AND of two nodes, if operation is invalid NULL
    */
   @Override
-  public Ilogical and(INode left, INode right) {
+  public Ilogical and(INode leftChild, INode rightChild) {
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     var tmp = new And(left, right);
-    var calculator = new And(tmp.getLeftChild(), tmp.getRightChild());
-    return (Ilogical) calculator.eval();
+    OpState.switchState(tmp, left);
+    return (Ilogical) tmp.eval();
   }
 
   /**
-   * @param left  right child node, if this is called it should NOT be a INative
-   * @param right right child node, if this is called it should NOT be a INative
+   * Applies logical OR to two Nodes
+   * @param leftChild  right child node, if this is called it should NOT be a INative
+   * @param rightChild right child node, if this is called it should NOT be a INative
    * @return Ilogical of evaluating the logical OR of two nodes, if operation is invalid NULL
    */
   @Override
-  public Ilogical or(INode left, INode right) {
+  public Ilogical or(INode leftChild, INode rightChild) {
+    INative left = leftChild.eval();
+    INative right = rightChild.eval();
     var tmp = new Or(left, right);
-    var calculator = new Or(tmp.getLeftChild(), tmp.getRightChild());
-    return (Ilogical) calculator.eval();
+    OpState.switchState(tmp, left);
+    return (Ilogical) tmp.eval();
   }
 
+  /**
+   * Applies logical NOT to Node
+   * @param node Node to do the unary logical operation NOT
+   * @return Ilogical of evaluating the logical NOT of current Node
+   */
   @Override
   public Ilogical not(INode node) {
-    var tmp = new Not(node);
-    var calculator = new Not(tmp.getLeftChild());
-    return (Ilogical) calculator.eval();
+    try {
+      Ilogical ilogical = (Ilogical) node.eval();
+      var tmp = new Not(ilogical);
+      OpState.switchState(tmp, ilogical);
+      return (Ilogical) tmp.eval();
+    }
+    catch (ClassCastException e){
+      return null;
+    }
   }
 }

@@ -9,11 +9,6 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
 public class And extends OpNode {
 
-  public And(INode leftChild,
-      INode rightChild,
-      State state) {
-    super(leftChild, rightChild, state);
-  }
 
   public And(SString leftChild,
       INode rightChild) {

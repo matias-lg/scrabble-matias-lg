@@ -31,9 +31,7 @@ public class Add extends OpNode {
     super(leftChild, rightChild);
   }
 
-  public Add(INode leftChild, INode rightChild, State state) {
-    super(leftChild, rightChild, state);
-  }
+
 
   /**
    * Sums left and right childs, evaluating them first

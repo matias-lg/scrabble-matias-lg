@@ -10,10 +10,6 @@ import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 public class Not extends OpNode {
 
 
-  public Not(INode leftChild, INode rightChild, State state) {
-    super(leftChild, rightChild, state);
-  }
-
   public Not(SString node) {
     super(node, null);
   }
