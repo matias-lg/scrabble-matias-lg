@@ -3,7 +3,7 @@ package cl.uchile.dcc.scrabble.gui.natives;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 
-public interface Ilogical {
+public interface Ilogical extends INative {
 
   Ilogical not();
 

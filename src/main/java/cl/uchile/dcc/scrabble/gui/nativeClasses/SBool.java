@@ -1,5 +1,6 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
 import java.util.Objects;
@@ -7,9 +8,9 @@ import java.util.Objects;
 /**
  * Native Scrabble Boolean type
  */
-public class SBool implements INative, Ilogical {
+public class SBool extends AbstractNative implements INative, Ilogical {
 
-  boolean value;
+  private boolean value;
 
   /**
    * Stores a Java bool
@@ -68,6 +69,15 @@ public class SBool implements INative, Ilogical {
   }
 
   /**
+   * Creates a new equivalent SBool
+   *
+   * @return new SBool containing same boolean value
+   */
+  public SBool toSBool() {
+    return new SBool(this.value);
+  }
+
+  /**
    * Creates a new SString which contains the stored bool as a String
    *
    * @return new SString storing a bool as a String "true" or "false"
@@ -78,6 +88,7 @@ public class SBool implements INative, Ilogical {
 
   /**
    * Creates new SString containing sum of string and saved value as string
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */
@@ -88,6 +99,7 @@ public class SBool implements INative, Ilogical {
 
   /**
    * Creates a new SBool containing the negation of current SBool
+   *
    * @return new SBool containing the negation of current SBool
    */
   @Override

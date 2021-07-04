@@ -1,12 +1,13 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import java.util.Objects;
 
 /**
  * Native Scrabble String, stores a Java String
  */
-public class SString implements INative {
+public class SString extends AbstractNative implements INative {
 
   private String value;
 
@@ -71,12 +72,13 @@ public class SString implements INative {
    * @param nat INative to sum with
    * @return new SString containing sum of strings
    */
-  public SString add(INative nat){
+  public SString add(INative nat) {
     return nat.sumWithString(this);
   }
 
   /**
    * Creates new SString containing sum of two strings
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */

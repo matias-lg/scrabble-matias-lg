@@ -9,7 +9,6 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
  */
 public interface IInteger extends INumber {
   /* operations */
-//  INumber add(IInteger num);
 
   /* Transformations */
   SInt toSInt();

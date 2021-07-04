@@ -1,15 +1,17 @@
 package cl.uchile.dcc.scrabble.gui.nativeClasses;
 
 
+import cl.uchile.dcc.scrabble.gui.natives.AbstractNative;
 import cl.uchile.dcc.scrabble.gui.natives.IInteger;
 import cl.uchile.dcc.scrabble.gui.natives.INumber;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.operations.IIntegerOperable;
 import java.util.Objects;
 
 /**
  * Native Scrabble Binary
  */
-public class SBinary implements IInteger, Ilogical {
+public class SBinary extends AbstractNative implements IIntegerOperable, Ilogical {
 
   private String value;
 
@@ -80,6 +82,7 @@ public class SBinary implements IInteger, Ilogical {
 
   /**
    * Creates new SString containing sum of string and saved value as string
+   *
    * @param str SString to sum with
    * @return new SString containing sum of strings
    */
@@ -142,7 +145,7 @@ public class SBinary implements IInteger, Ilogical {
    * @param num number to add
    * @return sum of two numbers (SBinary when possible)
    */
-  public IInteger add(IInteger num) {
+  public INumber add(IInteger num) {
     return num.sumWithBinary(this);
   }
 
@@ -388,18 +391,17 @@ public class SBinary implements IInteger, Ilogical {
     StringBuilder result = new StringBuilder();
     String largest, small;
     int max, min;
-    if (binary.getValue().length() >= getValue().length()){
+    if (binary.getValue().length() >= getValue().length()) {
       largest = binary.getValue();
       max = binary.getValue().length();
       min = getValue().length();
       /* Add ones to match size, 1 AND x will always return x */
-      small = "1".repeat(max-min) + this.getValue();
-    }
-    else{
+      small = "1".repeat(max - min) + this.getValue();
+    } else {
       max = getValue().length();
       min = binary.getValue().length();
       largest = this.getValue();
-      small = "1".repeat(max-min) + binary.getValue();
+      small = "1".repeat(max - min) + binary.getValue();
     }
     int count = 0;
     do {
@@ -407,12 +409,11 @@ public class SBinary implements IInteger, Ilogical {
         System.out.println(largest);
         System.out.println(small);
         result.append("1");
-      }
-      else{
+      } else {
         result.append("0");
       }
       count++;
-    } while(count < max);
+    } while (count < max);
     return new SBinary(result.toString());
   }
 
@@ -426,22 +427,20 @@ public class SBinary implements IInteger, Ilogical {
   public Ilogical andWithBool(SBool bool) {
     int count = 0;
     StringBuilder result = new StringBuilder();
-    if(bool.getValue()){
+    if (bool.getValue()) {
       do {
-        if (getValue().charAt(count) == '0'){
+        if (getValue().charAt(count) == '0') {
           result.append("0");
-        }
-        else{
+        } else {
           result.append("1");
         }
         count++;
-      }while (count < getValue().length());
-    }
-    else{
+      } while (count < getValue().length());
+    } else {
       do {
-          result.append("0");
-          count++;
-        }
+        result.append("0");
+        count++;
+      }
       while (count < getValue().length());
     }
     return new SBinary(result.toString());
@@ -459,18 +458,17 @@ public class SBinary implements IInteger, Ilogical {
     StringBuilder result = new StringBuilder();
     String largest, small;
     int max, min;
-    if (binary.getValue().length() >= getValue().length()){
+    if (binary.getValue().length() >= getValue().length()) {
       largest = binary.getValue();
       max = binary.getValue().length();
       min = getValue().length();
       /* Add zeros to match size, 0 OR x will always return x */
-      small = "0".repeat(max-min) + this.getValue();
-    }
-    else{
+      small = "0".repeat(max - min) + this.getValue();
+    } else {
       max = getValue().length();
       min = binary.getValue().length();
       largest = this.getValue();
-      small = "0".repeat(max-min) + binary.getValue();
+      small = "0".repeat(max - min) + binary.getValue();
     }
     int count = 0;
     do {
@@ -478,12 +476,11 @@ public class SBinary implements IInteger, Ilogical {
         System.out.println(largest);
         System.out.println(small);
         result.append("0");
-      }
-      else{
+      } else {
         result.append("1");
       }
       count++;
-    } while(count < max);
+    } while (count < max);
     return new SBinary(result.toString());
   }
 
@@ -497,18 +494,16 @@ public class SBinary implements IInteger, Ilogical {
   public Ilogical orWithBool(SBool bool) {
     int count = 0;
     StringBuilder result = new StringBuilder();
-    if(!bool.getValue()){
+    if (!bool.getValue()) {
       do {
-        if (getValue().charAt(count) == '0'){
+        if (getValue().charAt(count) == '0') {
           result.append("0");
-        }
-        else{
+        } else {
           result.append("1");
         }
         count++;
-      }while (count < getValue().length());
-    }
-    else{
+      } while (count < getValue().length());
+    } else {
       do {
         result.append("1");
         count++;
@@ -517,4 +512,5 @@ public class SBinary implements IInteger, Ilogical {
     }
     return new SBinary(result.toString());
   }
+
 }
