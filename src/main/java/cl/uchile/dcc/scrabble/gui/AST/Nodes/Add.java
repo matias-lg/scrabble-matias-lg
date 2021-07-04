@@ -1,6 +1,5 @@
-package cl.uchile.dcc.scrabble.gui.AST;
+package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
-import cl.uchile.dcc.scrabble.gui.AST.State.State;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;

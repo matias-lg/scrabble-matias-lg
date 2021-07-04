@@ -1,7 +1,9 @@
-package cl.uchile.dcc.scrabble.gui.AST;
+package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
@@ -9,7 +11,7 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import org.junit.jupiter.api.Test;
 
-class MultTest {
+class OrTest {
   private final Add testNode = new Add(new SInt(1), new SInt(0)); // int(1)
   private final SFloat testNumber = new SFloat(3);
   private final SBool testBool = new SBool(true);
@@ -19,14 +21,15 @@ class MultTest {
   @Test
   void eval() {
     // number
-    assertEquals(new SFloat(3), new Mult(testNumber, testNode).eval());
+    assertNull(new Or(testNumber, testNode).eval());
     // bool
-    assertNull(new Mult(testBool, testNode).eval());
+    assertEquals(new SBinary("11"),new Or(testBool, testBinary).eval());
     // binary
-    assertEquals(new SBinary("10"), new Mult(testBinary, testNode).eval());
+    assertNull(new Or(testBinary, testNode).eval());
     // string
-    assertNull(new Mult(testString, testNode).eval());
+    assertNull(new Or(testString, testNode).eval());
     // node
-    assertEquals(new SInt(1), new Mult(testNode, testNode).eval());
+    assertNull(new Or(testNode, testNode).eval());
   }
+
 }

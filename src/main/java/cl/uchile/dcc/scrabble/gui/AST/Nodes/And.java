@@ -1,46 +1,45 @@
-package cl.uchile.dcc.scrabble.gui.AST;
+package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
-import cl.uchile.dcc.scrabble.gui.AST.State.State;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
-public class Or extends OpNode {
+public class And extends OpNode {
 
 
-  public Or(SString leftChild,
+  public And(SString leftChild,
       INode rightChild) {
     super(leftChild, rightChild);
   }
 
-  public Or(INumberOperable leftChild,
+  public And(INumberOperable leftChild,
       INode rightChild) {
     super(leftChild, rightChild);
   }
 
-  public Or(SBinary leftChild,
+  public And(SBinary leftChild,
       INode rightChild) {
     super(leftChild, rightChild);
   }
 
-  public Or(SBool leftChild,
+  public And(SBool leftChild,
       INode rightChild) {
     super(leftChild, rightChild);
   }
 
-  public Or(INode leftChild, INode rightChild) {
+  public And(INode leftChild, INode rightChild) {
     super(leftChild, rightChild);
   }
 
   /**
-   * Logical OR between left and right childs, evaluating them first
+   * logical AND between left and right childs, evaluating them first
    *
-   * @return New INative containing the result of logical OR of left and right childs
+   * @return New INative containing the result of logical AND of left and right childs
    */
   @Override
   public INative eval() {
-    return (INative) this.state.or(getLeftChild(), getRightChild());
+    return (INative) this.state.and(getLeftChild(), getRightChild());
   }
 }

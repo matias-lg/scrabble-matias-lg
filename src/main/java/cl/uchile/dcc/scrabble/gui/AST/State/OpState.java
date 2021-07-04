@@ -1,14 +1,14 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
-import cl.uchile.dcc.scrabble.gui.AST.Add;
-import cl.uchile.dcc.scrabble.gui.AST.And;
-import cl.uchile.dcc.scrabble.gui.AST.Div;
-import cl.uchile.dcc.scrabble.gui.AST.INode;
-import cl.uchile.dcc.scrabble.gui.AST.Mult;
-import cl.uchile.dcc.scrabble.gui.AST.Not;
-import cl.uchile.dcc.scrabble.gui.AST.OpNode;
-import cl.uchile.dcc.scrabble.gui.AST.Or;
-import cl.uchile.dcc.scrabble.gui.AST.Subs;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.And;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Div;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Subs;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
@@ -16,7 +16,6 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
-import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
 
 public class OpState implements State {
 

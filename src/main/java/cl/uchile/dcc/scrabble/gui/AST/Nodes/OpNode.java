@@ -1,4 +1,4 @@
-package cl.uchile.dcc.scrabble.gui.AST;
+package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
 import cl.uchile.dcc.scrabble.gui.AST.State.BinaryState;
 import cl.uchile.dcc.scrabble.gui.AST.State.BoolState;

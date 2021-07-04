@@ -2,10 +2,10 @@ package cl.uchile.dcc.scrabble.gui.AST.State;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import cl.uchile.dcc.scrabble.gui.AST.Add;
-import cl.uchile.dcc.scrabble.gui.AST.Mult;
-import cl.uchile.dcc.scrabble.gui.AST.Not;
-import cl.uchile.dcc.scrabble.gui.AST.Or;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;

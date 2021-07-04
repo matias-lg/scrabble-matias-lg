@@ -1,7 +1,9 @@
-package cl.uchile.dcc.scrabble.gui.AST;
+package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.Subs;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
@@ -9,7 +11,7 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import org.junit.jupiter.api.Test;
 
-class DivTest {
+class SubsTest {
   private final Add testNode = new Add(new SInt(1), new SInt(0)); // int(1)
   private final SFloat testNumber = new SFloat(3);
   private final SBool testBool = new SBool(true);
@@ -19,15 +21,14 @@ class DivTest {
   @Test
   void eval() {
     // number
-    assertEquals(new SFloat(3), new Div(testNumber, testNode).eval());
+    assertEquals(new SFloat(2), new Subs(testNumber, testNode).eval());
     // bool
-    assertNull(new Div(testBool, testNode).eval());
+    assertNull(new Subs(testBool, testNode).eval());
     // binary
-    assertEquals(new SBinary("10"), new Div(testBinary, testNode).eval());
+    assertEquals(new SBinary("1"), new Subs(testBinary, testNode).eval());
     // string
-    assertNull(new Div(testString, testNode).eval());
+    assertNull(new Subs(testString, testNode).eval());
     // node
-    assertEquals(new SInt(1), new Div(testNode, testNode).eval());
+    assertEquals(new SInt(0), new Subs(testNode, testNode).eval());
   }
-
 }
