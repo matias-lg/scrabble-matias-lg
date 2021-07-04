@@ -19,3 +19,11 @@ All operations works as one would expect (+, -, *, /, AND, OR, NOT), this operat
 
 
 Some things to consider: For SBinary to work as intended you need to pass a 32 byte binary as a String using two's complement, if there's less than 32 characters all the remaining will be filled with zeros, this means that `SBinary("1")` equals to decimal "1"; also `SBinary("11111111111111111111111111111111")` equals to decimal "-1".
+
+## Abstract syntax tree
+You can do multiple operations at the same time using the AST package, the abstract syntax tree is implemented using both Composite and State pattern. You also use the Factory class of this package to create Trees that have memory (for not creating same values all over again). For the memory to work as intended you need to create ASTs in the following way:
+```java
+var f = new Factory();
+f.setAST(new Add(new Mult(f.createSFloat(1.0), f.createSInt(10)), new Or(f.createSBinary("0"), f.createSBool(true))));
+f.evalAST() // SFloat(11)
+```
