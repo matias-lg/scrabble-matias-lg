@@ -16,21 +16,17 @@ public class Add extends OpNode {
     super(leftChild, rightChild);
   }
 
-  public Add(SBinary leftChild,
-      INode rightChild) {
+  public Add(SBinary leftChild, INode rightChild) {
     super(leftChild, rightChild);
   }
 
-  public Add(SBool leftChild,
-      INode rightChild) {
+  public Add(SBool leftChild, INode rightChild) {
     super(leftChild, rightChild);
   }
 
   public Add(INode leftChild, INode rightChild) {
     super(leftChild, rightChild);
   }
-
-
 
   /**
    * Sums left and right childs, evaluating them first

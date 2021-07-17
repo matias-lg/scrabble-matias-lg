@@ -1,11 +1,13 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
+import cl.uchile.dcc.scrabble.gui.AST.State.OpState;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;

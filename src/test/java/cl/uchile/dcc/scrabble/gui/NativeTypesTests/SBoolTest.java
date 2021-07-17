@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;

@@ -9,7 +9,6 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.INative;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;

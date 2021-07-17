@@ -1,6 +1,7 @@
 package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;

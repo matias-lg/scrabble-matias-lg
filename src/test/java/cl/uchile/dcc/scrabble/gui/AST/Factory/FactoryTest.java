@@ -1,8 +1,9 @@
 package cl.uchile.dcc.scrabble.gui.AST.Factory;
 
 import static org.apache.commons.lang3.RandomStringUtils.random;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import cl.uchile.dcc.scrabble.gui.AST.Factory.Factory;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;

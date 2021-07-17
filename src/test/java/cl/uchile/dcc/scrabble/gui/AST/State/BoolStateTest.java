@@ -1,8 +1,10 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
 import static org.apache.commons.lang3.RandomStringUtils.random;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+import cl.uchile.dcc.scrabble.gui.AST.State.BoolState;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;

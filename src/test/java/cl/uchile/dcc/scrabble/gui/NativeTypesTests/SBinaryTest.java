@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import java.util.Random;

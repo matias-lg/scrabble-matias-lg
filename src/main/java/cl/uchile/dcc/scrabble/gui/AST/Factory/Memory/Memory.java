@@ -2,9 +2,6 @@ package cl.uchile.dcc.scrabble.gui.AST.Factory.Memory;
 
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 
 public class Memory {
   private ArrayList<INative> memory = new ArrayList<INative>();

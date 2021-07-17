@@ -1,7 +1,9 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+import cl.uchile.dcc.scrabble.gui.AST.State.NumberState;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
