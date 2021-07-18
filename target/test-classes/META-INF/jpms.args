@@ -1,0 +1,4 @@
+--patch-module
+scrabble.main=_
+--add-reads
+scrabble.main=ALL-UNNAMED
