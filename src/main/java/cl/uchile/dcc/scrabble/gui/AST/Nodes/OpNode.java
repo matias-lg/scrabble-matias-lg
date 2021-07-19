@@ -53,11 +53,15 @@ public abstract class OpNode implements INode {
   /* Since we can't downcast in runtime we evaluate right away */
   public OpNode(INode leftChild, INode rightChild) {
     this.state = new OpState();
-    this.leftChild = leftChild.eval();
+    try {
+    this.leftChild = leftChild.eval();}
+    catch (Exception e){
+      /* in case leftchild is null keep it like that */
+      this.leftChild = null;
+    }
     try {
       this.rightChild = rightChild.eval();
     } catch (Exception e) {
-      System.out.println("We are in exception!!!");
       /* set rightChild to null when called by NOT node */
       this.rightChild = null;
     }
@@ -93,5 +97,21 @@ public abstract class OpNode implements INode {
    */
   public INode getRightChild() {
     return rightChild;
+  }
+
+  /**
+   * Sets left child of node
+   * @param leftChild INode to set as leftChild
+   */
+  public void setLeftChild(INode leftChild){
+    this.leftChild = leftChild;
+  }
+
+  /**
+   * Sets right child of node
+   * @param rightChild INode to set as rightChild
+   */
+  public void setRightChild(INode rightChild){
+    this.rightChild = rightChild;
   }
 }
