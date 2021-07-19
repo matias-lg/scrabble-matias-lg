@@ -4,7 +4,6 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import cl.uchile.dcc.scrabble.gui.AST.State.StringState;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
@@ -15,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StringStateTest {
+
   private SInt testInt;
   private SFloat testFloat;
   private SBinary testBin;
@@ -25,7 +25,7 @@ class StringStateTest {
   private final StringState stringState = new StringState();
 
   @BeforeEach
-  void setUp(){
+  void setUp() {
     long seed = new Random().nextInt();
     rng = new Random(seed);
     testInt = new SInt(rng.nextInt());

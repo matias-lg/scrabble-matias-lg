@@ -1,7 +1,7 @@
 module scrabble.main {
-    requires javafx.controls;
-    exports cl.uchile.dcc.scrabble.gui;
-    exports cl.uchile.dcc.scrabble.gui.GUI;
+  requires javafx.controls;
+  exports cl.uchile.dcc.scrabble.gui;
+  exports cl.uchile.dcc.scrabble.gui.GUI;
   exports cl.uchile.dcc.scrabble.gui.GUI.Controller;
   exports cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper;
   exports cl.uchile.dcc.scrabble.gui.AST.Nodes;

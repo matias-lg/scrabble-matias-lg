@@ -3,8 +3,9 @@ package cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapp
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
 
-public class TreeNot extends TreeOpNode{
- public TreeNot(){
-   super("~", new Not((INode)null));
- }
+public class TreeNot extends TreeOpNode {
+
+  public TreeNot() {
+    super("~", new Not((INode) null));
+  }
 }

@@ -54,8 +54,8 @@ public abstract class OpNode implements INode {
   public OpNode(INode leftChild, INode rightChild) {
     this.state = new OpState();
     try {
-    this.leftChild = leftChild.eval();}
-    catch (Exception e){
+      this.leftChild = leftChild.eval();
+    } catch (Exception e) {
       /* in case leftchild is null keep it like that */
       this.leftChild = null;
     }
@@ -69,14 +69,16 @@ public abstract class OpNode implements INode {
 
   /**
    * Sets a state for OpNode instance
+   *
    * @param state state to set the OpNode to
    */
-  public void setState(State state){
+  public void setState(State state) {
     this.state = state;
   }
 
   /**
    * Gets the current state of the node
+   *
    * @return Node's state
    */
   public State getState() {
@@ -85,6 +87,7 @@ public abstract class OpNode implements INode {
 
   /**
    * Gets Node's left child
+   *
    * @return Node's left child
    */
   public INode getLeftChild() {
@@ -93,6 +96,7 @@ public abstract class OpNode implements INode {
 
   /**
    * Gets Node's right child
+   *
    * @return Node's right child
    */
   public INode getRightChild() {
@@ -101,17 +105,19 @@ public abstract class OpNode implements INode {
 
   /**
    * Sets left child of node
+   *
    * @param leftChild INode to set as leftChild
    */
-  public void setLeftChild(INode leftChild){
+  public void setLeftChild(INode leftChild) {
     this.leftChild = leftChild;
   }
 
   /**
    * Sets right child of node
+   *
    * @param rightChild INode to set as rightChild
    */
-  public void setRightChild(INode rightChild){
+  public void setRightChild(INode rightChild) {
     this.rightChild = rightChild;
   }
 }

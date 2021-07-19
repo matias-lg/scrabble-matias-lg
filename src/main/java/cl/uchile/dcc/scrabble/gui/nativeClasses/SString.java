@@ -21,6 +21,16 @@ public class SString extends AbstractNative implements INative {
   }
 
   /**
+   * Returns stored string as a string
+   *
+   * @return string contained in the class
+   */
+  @Override
+  public String toString() {
+    return value;
+  }
+
+  /**
    * Gets the stored String
    *
    * @return String stored in the SString

@@ -3,8 +3,9 @@ package cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapp
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
 
-public class TreeAdd extends TreeOpNode{
+public class TreeAdd extends TreeOpNode {
+
   public TreeAdd() {
-    super("+", new Add( (INode) null, null));
+    super("+", new Add((INode) null, null));
   }
 }

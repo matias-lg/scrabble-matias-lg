@@ -10,12 +10,13 @@ import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
 import cl.uchile.dcc.scrabble.gui.natives.INative;
 
 public class Factory {
+
   private final Memory memory = new Memory();
   private INode AST;
 
   /**
    * Adds a INode's value to memory
-   * 
+   *
    * @param node node to check
    */
   public void writeToMemory(INode node) {
@@ -24,7 +25,7 @@ public class Factory {
 
   /**
    * Creates a SFloat and stores it in memory if it isn't already there
-   * 
+   *
    * @param val SFloat value to store
    * @return SFloat instance stored in memory
    */
@@ -39,7 +40,7 @@ public class Factory {
 
   /**
    * Creates a SInt and stores it in memory if it isn't already there
-   * 
+   *
    * @param val SInt value to store
    * @return SInt instance stored in memory
    */
@@ -53,7 +54,7 @@ public class Factory {
 
   /**
    * Creates a SBinary and stores it in memory if it isn't already there
-   * 
+   *
    * @param val SBinary value to store
    * @return SBinary instance stored in memory
    */
@@ -67,7 +68,7 @@ public class Factory {
 
   /**
    * Creates a SString and stores it in memory if it isn't already there
-   * 
+   *
    * @param val SString value to store
    * @return SString instance stored in memory
    */
@@ -81,7 +82,7 @@ public class Factory {
 
   /**
    * Creates a SBool and stores it in memory if it isn't already there
-   * 
+   *
    * @param val SBool value to store
    * @return SBool instance stored in memory
    */
@@ -95,7 +96,7 @@ public class Factory {
 
   /**
    * sets factory's AST using values stored in factory's memory
-   * 
+   *
    * @param node node to create using memory's stored values
    */
   public void setAST(INode node) {
@@ -108,7 +109,7 @@ public class Factory {
 
   /**
    * Get's created AST
-   * 
+   *
    * @return AST stored in the factory
    */
   public INode getAST() {
@@ -117,7 +118,7 @@ public class Factory {
 
   /**
    * Evaluates stored AST and save it to memory
-   * 
+   *
    * @return Evaluates stored AST and returns the resulting INative
    */
   public INative evalAst() {

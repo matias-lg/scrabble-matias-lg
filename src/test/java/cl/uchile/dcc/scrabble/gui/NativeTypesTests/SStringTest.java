@@ -63,11 +63,11 @@ public class SStringTest {
   }
 
   @RepeatedTest(20)
-  public void sumTest(){
+  public void sumTest() {
     /* Random types */
     int irng = rng.nextInt();
     double drng = rng.nextDouble();
-    String brng = random(20, 0, 2, false, true, new char[] {'0', '1'}, rng);
+    String brng = random(20, 0, 2, false, true, new char[]{'0', '1'}, rng);
     boolean boolrng = rng.nextBoolean();
     String srng = random(STR_SIZE, 0, Character.MAX_CODE_POINT, true, true, null, rng);
     /* Create random Scrabble types */

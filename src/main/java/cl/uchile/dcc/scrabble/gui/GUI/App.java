@@ -1,23 +1,16 @@
 package cl.uchile.dcc.scrabble.gui.GUI;
 
+import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
+import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.AstNodeWrapper;
 import cl.uchile.dcc.scrabble.gui.GUI.Controller.TreeController;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.TreeWrapperController;
+import java.io.Console;
 import java.io.IOException;
-import java.util.Stack;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -45,7 +38,7 @@ public class App extends Application {
     VBox canvas = new VBox();
     canvas.prefWidthProperty().bind(scene.widthProperty().multiply(0.9));
     // connect controller to canvas
-    TreeWrapperController controller = new TreeWrapperController(canvas);
+    TreeController controller = new TreeController(canvas);
     // operations title tile
     StackPane titlePanel = new StackPane();
     Text opTitle = new Text("Operations");
@@ -80,16 +73,58 @@ public class App extends Application {
     typeTitlePanel.getChildren().add(typeTitle);
     typeTitlePanel.getStyleClass().add("operations-title");
     typeTitlePanel.setPrefHeight(25);
-    // types buttons
+    // types buttons - when clicked show a popup to input value and replace selected node
     Button binaryBtn = createMenuButton("Binary");
+    binaryBtn.setOnAction(actionEvent -> {
+      var td = PopupFactory.createBinaryPopUp();
+      td.showAndWait();
+      String inputValue = td.getEditor().getText();
+      controller.createBinaryNode(inputValue);
+    });
+
     Button boolBtn = createMenuButton("Bool");
+    boolBtn.setOnAction(actionEvent -> {
+      var td = PopupFactory.createBoolPopUp();
+      td.showAndWait();
+      boolean inputValue = Boolean.parseBoolean(td.getEditor().getText());
+      controller.createBoolNode(inputValue);
+    });
+
     Button floatBtn = createMenuButton("Float");
+    floatBtn.setOnAction(actionEvent -> {
+      var td = PopupFactory.createFloatPopUp();
+      td.showAndWait();
+      double inputValue = Double.parseDouble(td.getEditor().getText());
+      controller.createFloatNode(inputValue);
+    });
+
     Button intBtn = createMenuButton("Int");
+    intBtn.setOnAction(actionEvent -> {
+      var td = PopupFactory.createIntPopUp();
+      td.showAndWait();
+      int inputValue = Integer.parseInt(td.getEditor().getText());
+      controller.createIntNode(inputValue);
+    });
+
     Button strBtn = createMenuButton("String");
+    strBtn.setOnAction(actionEvent -> {
+      var td = PopupFactory.createStringPopUp();
+      td.showAndWait();
+      String inputValue = td.getEditor().getText();
+      controller.createStringNode(inputValue);
+    });
+
+    Button evalBtn = createMenuButton("Evaluate Tree");
+    evalBtn.getStyleClass().clear();
+    evalBtn.getStyleClass().add("eval-button");
+    evalBtn.setOnAction(actionEvent -> {
+      System.out.println(controller.evalTree().toString());
+    });
+
     // add everything to menu
     menu.getChildren()
         .addAll(titlePanel, addBtn, subBtn, divBtn, prodBtn, andBtn, orBtn, notBtn, typeTitlePanel,
-            intBtn, floatBtn, binaryBtn, boolBtn, strBtn);
+            intBtn, floatBtn, binaryBtn, boolBtn, strBtn, evalBtn);
     fileRoot.getChildren().addAll(menu, canvas);
     root.getChildren().add(fileRoot);
   }
@@ -99,9 +134,6 @@ public class App extends Application {
     btn.setPrefHeight(35);
     btn.setPrefWidth(150);
     btn.getStyleClass().add("custom-menu-button");
-    btn.setOnAction(actionEvent -> {
-      System.out.println("hola");
-    });
     return btn;
   }
 
