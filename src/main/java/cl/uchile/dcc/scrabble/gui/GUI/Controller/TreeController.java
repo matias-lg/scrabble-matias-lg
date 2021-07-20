@@ -1,10 +1,11 @@
 package cl.uchile.dcc.scrabble.gui.GUI.Controller;
 
 import cl.uchile.dcc.scrabble.gui.AST.Factory.Factory;
-import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.AstNodeWrapper;
-import cl.uchile.dcc.scrabble.gui.natives.INative;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.AstNodeWrapper;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeNull;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SNull;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.Pane;
@@ -16,6 +17,7 @@ import javafx.scene.layout.StackPane;
 public class TreeController extends Canvas {
 
   private final Pane canvas;
+  private final Factory factory = new Factory();
   private AstNodeWrapper activeNode;
   private AstNodeWrapper rootTree;
   private TreeView<String> rootTreeView = new TreeView<>(rootTree);
@@ -60,14 +62,14 @@ public class TreeController extends Canvas {
       int position = parentChildrenList.indexOf(getActiveNode());
       var parent = (AstNodeWrapper) getActiveNode().getParent();
       // Check if its OpNode or a SNative
-      if (parent.getNode() instanceof OpNode){
+      if (parent.getNode() instanceof OpNode) {
         OpNode parentNode = (OpNode) parent.getNode();
-        if(position == 0){
-        parentNode.setLeftChild(newNode.getNode());}
-        else {
-        parentNode.setRightChild(newNode.getNode());}
-      }
-      else{
+        if (position == 0) {
+          parentNode.setLeftChild(newNode.getNode());
+        } else {
+          parentNode.setRightChild(newNode.getNode());
+        }
+      } else {
         parent.setNode(newNode.getNode());
       }
       // replace active node with this new add node
@@ -141,77 +143,96 @@ public class TreeController extends Canvas {
 
   /**
    * Replaces current active node with an Int Node
+   *
    * @param value number to wrap
    */
-  public void createIntNode(int value){
-    var intNode = TreeNodeFactory.createIntNode(value);
+  public void createIntNode(int value) {
+    var intNode = TreeNodeFactory.createIntNode(factory.createSInt(value));
     updateTree(intNode);
   }
 
   /**
    * Replaces current active node with a Float Node
+   *
    * @param value double to wrap
    */
-  public void createFloatNode(double value){
-    var floatNode = TreeNodeFactory.createFloatNode(value);
+  public void createFloatNode(double value) {
+    var floatNode = TreeNodeFactory.createFloatNode(factory.createSFloat(value));
     updateTree(floatNode);
   }
 
   /**
    * Replaces current active node with a float node
+   *
    * @param value binary string to wrap
    */
-  public void createBinaryNode(String value){
-    var binaryNode = TreeNodeFactory.createBinaryNode(value);
+  public void createBinaryNode(String value) {
+    var binaryNode = TreeNodeFactory.createBinaryNode(factory.createSBinary(value));
     updateTree(binaryNode);
   }
 
   /**
    * Replaces current active node with a String node
+   *
    * @param value String to wrap
    */
-  public void createStringNode(String value){
-    var stringNode = TreeNodeFactory.createStringNode(value);
+  public void createStringNode(String value) {
+    var stringNode = TreeNodeFactory.createStringNode(factory.createSString(value));
     updateTree(stringNode);
   }
 
   /**
    * Replaces current active node with a boolean node
+   *
    * @param value boolean to wrap
    */
-  public void createBoolNode(boolean value){
-    var boolNode = TreeNodeFactory.createBoolNode(value);
+  public void createBoolNode(boolean value) {
+    var boolNode = TreeNodeFactory.createBoolNode(factory.createSBool(value));
     updateTree(boolNode);
   }
-
-
   /* END REPLACEMENT OF ACTIVE NODE WITH TYPE NODES */
 
 
+  /**
+   * Draws rootTree in the canvas
+   */
   public void draw() {
     var newTreeView = new TreeView<>(rootTree);
     // when clicking on a Node it will be set to active
     newTreeView.getSelectionModel()
         .selectedItemProperty()
         .addListener((observable, oldValue, newValue) -> setActiveNode(
-            (AstNodeWrapper) newValue)); // our tree consists only in nodewrappers, safe cast
+            (AstNodeWrapper) newValue)); // our tree consists only in nodewrappers => safe cast
     var rootTreePane = new StackPane();
     rootTreePane.getChildren().add(newTreeView);
     // replace old tree with updated tree
-    System.out.println(getActiveNode());
     canvas.getChildren().clear();
     canvas.getChildren().add(rootTreePane);
   }
 
-  public INative evalTree(){
-    return rootTree.getNode().eval();
+  /**
+   * Evaluates rootTree
+   *
+   * @return INative that contains the result of AST evaluation
+   */
+  public INative evalTree() {
+    try {
+      if (rootTree.eval() == null) {
+        return new SNull();
+      }
+      return rootTree.eval();
+    }
+    // Invalid operations
+    catch (StackOverflowError | NullPointerException e) {
+      return new SNull();
+    }
   }
 
-  public AstNodeWrapper getRootTree() {
-    return rootTree;
+  /**
+   * Empties the tree and draw
+   */
+  public void clearTree(){
+    setActiveNode(rootTree);
+    updateTree(TreeNodeFactory.createNullNode());
   }
-
-  //  public INative eval(TreeItem<String> root){
-//    root.operation( eval(root.getChildren()[0]), eval(root.getChildren()[1]))
-//  }
 }

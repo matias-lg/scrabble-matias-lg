@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;

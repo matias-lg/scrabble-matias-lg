@@ -6,10 +6,10 @@ import cl.uchile.dcc.scrabble.gui.AST.State.NumberState;
 import cl.uchile.dcc.scrabble.gui.AST.State.OpState;
 import cl.uchile.dcc.scrabble.gui.AST.State.State;
 import cl.uchile.dcc.scrabble.gui.AST.State.StringState;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.operations.INumberOperable;
 
 /**
  * Tree Node that represents a binary or unary operation. eg: sum, and, or

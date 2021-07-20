@@ -1,6 +1,6 @@
 package cl.uchile.dcc.scrabble.gui.AST.Factory.Memory;
 
-import cl.uchile.dcc.scrabble.gui.natives.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
 import java.util.ArrayList;
 
 public class Memory {

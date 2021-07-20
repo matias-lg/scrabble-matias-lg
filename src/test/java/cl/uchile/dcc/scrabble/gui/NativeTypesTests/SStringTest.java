@@ -4,11 +4,11 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -57,6 +57,10 @@ public class SStringTest {
 
     } while (randomString.equals(otherstr));
     var otherScrabbleString = new SString(otherstr);
+    /* toString too */
+    assertEquals(otherstr, otherScrabbleString.toString());
+    assertNotEquals(otherstr, testSString.toString());
+    /* end toString */
     assertEquals(testSString.toSString(), testSString);
     assertNotEquals(otherScrabbleString, testSString.toSString());
     assertEquals(new SString(otherstr), otherScrabbleString.toSString());

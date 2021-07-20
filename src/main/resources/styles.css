@@ -5,7 +5,7 @@
   -fx-font-size: 16px;
 }
 
-.eval-button{
+.eval-button {
   -fx-background-color: #dc4ff3;
   -fx-text-fill: white;
   -fx-border: none;
@@ -32,8 +32,8 @@
   -fx-font-size: 20px;
 }
 
-
-.test-border {
-  -fx-border-radius: 10px;
-  -fx-border-color: black;
+.cool-text {
+  -fx-font-size: 30px;
+  -fx-padding: 50%;
+  -fx-text-alignment: center;
 }

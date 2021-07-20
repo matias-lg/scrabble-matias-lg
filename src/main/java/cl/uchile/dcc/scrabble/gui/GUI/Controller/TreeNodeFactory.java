@@ -1,19 +1,24 @@
 package cl.uchile.dcc.scrabble.gui.GUI.Controller;
 
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeAdd;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeAnd;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeDiv;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeMult;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeNot;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeOpNode;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeOr;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.OperationsWrapper.TreeSubs;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeBinary;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeBool;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeFloat;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeInt;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeNull;
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.AstNodeWrapper.TypesWrapper.TreeString;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeAdd;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeAnd;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeDiv;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeMult;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeNot;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeOpNode;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeOr;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper.TreeSubs;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeBinary;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeBool;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeFloat;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeInt;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeNull;
+import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 
 public class TreeNodeFactory {
 
@@ -122,22 +127,61 @@ public class TreeNodeFactory {
   /* END OPERATION NODE CREATION */
 
 
-  public static TreeInt createIntNode(int value){
+  /**
+   * Creates an Int node without childs
+   *
+   * @param value int to save in Tree
+   * @return <code>TreeInt</code> containing value
+   */
+  public static TreeInt createIntNode(SInt value) {
     return new TreeInt(value);
   }
 
-  public static TreeFloat createFloatNode(double value) {
+  /**
+   * Creates a Float node without childs
+   *
+   * @param value int to save in Tree
+   * @return <code>TreeFloat</code> containing value
+   */
+  public static TreeFloat createFloatNode(SFloat value) {
     return new TreeFloat(value);
   }
 
-  public static TreeBinary createBinaryNode(String value){
+  /**
+   * Creates a Binary node without childs
+   *
+   * @param value binary to save in Tree
+   * @return <code>TreeBinary</code> containing value
+   */
+  public static TreeBinary createBinaryNode(SBinary value) {
     return new TreeBinary(value);
   }
-  public static TreeString createStringNode(String value){
+
+  /**
+   * Creates a String node without childs
+   *
+   * @param value String to save in Tree
+   * @return <code>TreeString</code> containing value
+   */
+  public static TreeString createStringNode(SString value) {
     return new TreeString(value);
   }
 
-  public static TreeBool createBoolNode(boolean value){
+  /**
+   * Creates a Boolean node without childs
+   *
+   * @param value boolean to save in Tree
+   * @return <code>TreeBool</code> containing value
+   */
+  public static TreeBool createBoolNode(SBool value) {
     return new TreeBool(value);
+  }
+
+  /**
+   * Creates a Null Tree node without childs
+   * @return New Null Tree node
+   */
+  public static TreeNull createNullNode(){
+    return new TreeNull();
   }
 }
