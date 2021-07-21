@@ -1,10 +1,10 @@
 package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.operations.INumberOperable;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
-import cl.uchile.dcc.scrabble.gui.natives.interfaces.operations.INumberOperable;
 
 public class Not extends OpNode {
 

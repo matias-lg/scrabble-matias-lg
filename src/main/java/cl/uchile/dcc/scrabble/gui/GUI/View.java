@@ -1,6 +1,6 @@
 package cl.uchile.dcc.scrabble.gui.GUI;
 
-import cl.uchile.dcc.scrabble.gui.GUI.Controller.TreeController;
+import cl.uchile.dcc.scrabble.gui.GUI.Controller.GraphicsController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -38,7 +38,7 @@ public class View extends Application {
     VBox interactiveScreen = new VBox();
     canvas.prefWidthProperty().bind(scene.widthProperty().multiply(0.9));
     // connect controller to canvas
-    TreeController controller = new TreeController(canvas);
+    GraphicsController controller = new GraphicsController(canvas);
     // operations title tile
     StackPane titlePanel = new StackPane();
     Text opTitle = new Text("Operations");
@@ -73,6 +73,7 @@ public class View extends Application {
     typeTitlePanel.getChildren().add(typeTitle);
     typeTitlePanel.getStyleClass().add("operations-title");
     typeTitlePanel.setPrefHeight(25);
+
     // types buttons - when clicked show a popup to input value and replace selected node
     Button binaryBtn = createMenuButton("Binary");
     binaryBtn.setOnAction(actionEvent -> {
@@ -88,22 +89,31 @@ public class View extends Application {
       td.showAndWait();
       boolean inputValue = Boolean.parseBoolean(td.getEditor().getText());
       controller.createBoolNode(inputValue);
+
     });
 
     Button floatBtn = createMenuButton("Float");
     floatBtn.setOnAction(actionEvent -> {
       var td = PopupFactory.createFloatPopUp();
       td.showAndWait();
-      double inputValue = Double.parseDouble(td.getEditor().getText());
-      controller.createFloatNode(inputValue);
+      try {
+        double inputValue = Double.parseDouble(td.getEditor().getText());
+        controller.createFloatNode(inputValue);
+      }
+      // if user didn't input a correct number. Ignore it
+      catch (NumberFormatException ignored) {
+      }
     });
 
     Button intBtn = createMenuButton("Int");
     intBtn.setOnAction(actionEvent -> {
       var td = PopupFactory.createIntPopUp();
       td.showAndWait();
-      int inputValue = Integer.parseInt(td.getEditor().getText());
-      controller.createIntNode(inputValue);
+      try {
+        int inputValue = Integer.parseInt(td.getEditor().getText());
+        controller.createIntNode(inputValue);
+      } catch (NumberFormatException ignored) {
+      }
     });
 
     Button strBtn = createMenuButton("String");

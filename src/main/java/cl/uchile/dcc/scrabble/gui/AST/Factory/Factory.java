@@ -2,12 +2,12 @@ package cl.uchile.dcc.scrabble.gui.AST.Factory;
 
 import cl.uchile.dcc.scrabble.gui.AST.Factory.Memory.Memory;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
 
 public class Factory {
 

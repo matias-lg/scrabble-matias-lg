@@ -1,12 +1,14 @@
 package cl.uchile.dcc.scrabble.gui.NativeTypesTests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SNull;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import org.junit.jupiter.api.Test;
 
 class SNullTest {
+
   private final SNull testNull = new SNull();
 
   @Test

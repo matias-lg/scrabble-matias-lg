@@ -2,6 +2,7 @@ package cl.uchile.dcc.scrabble.gui.GUI.Model.OperationsWrapper;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
 import cl.uchile.dcc.scrabble.gui.GUI.Model.AstNodeWrapper;
+import java.util.Objects;
 
 /*
   Wraps OpNodes
@@ -32,5 +33,27 @@ public abstract class TreeOpNode extends AstNodeWrapper {
   public void setRightChild(AstNodeWrapper rightChild) {
     getChildren().add(rightChild);
     node.setRightChild(rightChild.getNode());
+  }
+
+  /**
+   * Compares two TreeOpNodes by their stored labels
+   * @param o object to compare with
+   * @return <code>true</code> if both store the same node
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof TreeOpNode)) {
+      return false;
+    }
+    TreeOpNode that = (TreeOpNode) o;
+    return Objects.equals(getValue(), that.getValue());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), getNode());
   }
 }

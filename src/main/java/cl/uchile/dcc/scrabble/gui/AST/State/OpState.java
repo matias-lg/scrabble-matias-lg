@@ -9,13 +9,13 @@ import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Subs;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.Ilogical;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
 import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
-import cl.uchile.dcc.scrabble.gui.natives.interfaces.Ilogical;
 
 public class OpState implements State {
 

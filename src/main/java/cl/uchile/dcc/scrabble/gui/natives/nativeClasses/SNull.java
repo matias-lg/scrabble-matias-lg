@@ -31,4 +31,18 @@ public class SNull extends AbstractNative implements INative {
   public SString sumWithString(SString str) {
     return null;
   }
+
+  /**
+   * Compares two Nulls
+   *
+   * @param o Object to compare with
+   * @return true if its compared with a SNull
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    return o instanceof SNull;
+  }
 }

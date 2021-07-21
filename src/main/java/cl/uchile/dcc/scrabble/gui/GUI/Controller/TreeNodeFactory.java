@@ -179,9 +179,10 @@ public class TreeNodeFactory {
 
   /**
    * Creates a Null Tree node without childs
+   *
    * @return New Null Tree node
    */
-  public static TreeNull createNullNode(){
+  public static TreeNull createNullNode() {
     return new TreeNull();
   }
 }

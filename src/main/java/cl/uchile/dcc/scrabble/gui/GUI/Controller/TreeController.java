@@ -3,28 +3,29 @@ package cl.uchile.dcc.scrabble.gui.GUI.Controller;
 import cl.uchile.dcc.scrabble.gui.AST.Factory.Factory;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.OpNode;
 import cl.uchile.dcc.scrabble.gui.GUI.Model.AstNodeWrapper;
-import cl.uchile.dcc.scrabble.gui.GUI.Model.TypesWrapper.TreeNull;
-import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SNull;
 import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.TreeView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SNull;
 
 /**
  * Controller that App will use, this class will pass and execute all the Scrabble logic
  */
-public class TreeController extends Canvas {
+public class TreeController {
 
-  private final Pane canvas;
   private final Factory factory = new Factory();
   private AstNodeWrapper activeNode;
   private AstNodeWrapper rootTree;
-  private TreeView<String> rootTreeView = new TreeView<>(rootTree);
 
-  public TreeController(Pane canvas) {
-    this.canvas = canvas;
+  public TreeController() {
     this.activeNode = rootTree;
+  }
+
+  /**
+   * Gets the complete tree
+   *
+   * @return rootTree, the complete updated tree
+   */
+  public AstNodeWrapper getRootTree() {
+    return this.rootTree;
   }
 
   /**
@@ -64,6 +65,7 @@ public class TreeController extends Canvas {
       // Check if its OpNode or a SNative
       if (parent.getNode() instanceof OpNode) {
         OpNode parentNode = (OpNode) parent.getNode();
+        // add to left or right
         if (position == 0) {
           parentNode.setLeftChild(newNode.getNode());
         } else {
@@ -76,8 +78,6 @@ public class TreeController extends Canvas {
       var activeNodeParentsChildren = getActiveNode().getParent().getChildren();
       activeNodeParentsChildren.set(activeNodeParentsChildren.indexOf(getActiveNode()), newNode);
     }
-
-    draw();
   }
 
   /* BEGIN REPLAMENT OF ACTIVE NODE WITH OPNODES */
@@ -162,7 +162,7 @@ public class TreeController extends Canvas {
   }
 
   /**
-   * Replaces current active node with a float node
+   * Replaces current active node with a Binary node
    *
    * @param value binary string to wrap
    */
@@ -192,24 +192,6 @@ public class TreeController extends Canvas {
   }
   /* END REPLACEMENT OF ACTIVE NODE WITH TYPE NODES */
 
-
-  /**
-   * Draws rootTree in the canvas
-   */
-  public void draw() {
-    var newTreeView = new TreeView<>(rootTree);
-    // when clicking on a Node it will be set to active
-    newTreeView.getSelectionModel()
-        .selectedItemProperty()
-        .addListener((observable, oldValue, newValue) -> setActiveNode(
-            (AstNodeWrapper) newValue)); // our tree consists only in nodewrappers => safe cast
-    var rootTreePane = new StackPane();
-    rootTreePane.getChildren().add(newTreeView);
-    // replace old tree with updated tree
-    canvas.getChildren().clear();
-    canvas.getChildren().add(rootTreePane);
-  }
-
   /**
    * Evaluates rootTree
    *
@@ -229,9 +211,9 @@ public class TreeController extends Canvas {
   }
 
   /**
-   * Empties the tree and draw
+   * Empties the tree
    */
-  public void clearTree(){
+  public void clearTree() {
     setActiveNode(rootTree);
     updateTree(TreeNodeFactory.createNullNode());
   }

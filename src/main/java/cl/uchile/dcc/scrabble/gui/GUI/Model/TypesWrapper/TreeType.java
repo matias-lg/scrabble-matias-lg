@@ -11,4 +11,5 @@ public abstract class TreeType extends AstNodeWrapper {
   public TreeType(String label, INode node) {
     super(label, node);
   }
+
 }
