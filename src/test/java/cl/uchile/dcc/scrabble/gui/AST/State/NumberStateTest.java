@@ -3,17 +3,17 @@ package cl.uchile.dcc.scrabble.gui.AST.State;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import cl.uchile.dcc.scrabble.gui.AST.State.NumberState;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class NumberStateTest {
+
   private SInt testInt;
   private SFloat testFloat;
   private SBinary testBin;
@@ -35,7 +35,7 @@ class NumberStateTest {
 
   @Test
   void add() {
-    assertEquals(testInt.add(testFloat) ,numberState.add(testInt, testFloat));
+    assertEquals(testInt.add(testFloat), numberState.add(testInt, testFloat));
     assertEquals(testInt.add(testBin), numberState.add(testInt, testBin));
     assertNull(numberState.add(testInt, testString));
     assertNull(numberState.add(testFloat, testBool));
@@ -43,7 +43,7 @@ class NumberStateTest {
 
   @Test
   void subs() {
-    assertEquals(testInt.subs(testFloat) ,numberState.subs(testInt, testFloat));
+    assertEquals(testInt.subs(testFloat), numberState.subs(testInt, testFloat));
     assertEquals(testInt.subs(testBin), numberState.subs(testInt, testBin));
     assertNull(numberState.subs(testInt, testString));
     assertNull(numberState.subs(testFloat, testBool));
@@ -51,7 +51,7 @@ class NumberStateTest {
 
   @Test
   void mult() {
-    assertEquals(testInt.mult(testFloat) ,numberState.mult(testInt, testFloat));
+    assertEquals(testInt.mult(testFloat), numberState.mult(testInt, testFloat));
     assertEquals(testInt.mult(testBin), numberState.mult(testInt, testBin));
     assertNull(numberState.mult(testInt, testString));
     assertNull(numberState.mult(testFloat, testBool));
@@ -59,7 +59,7 @@ class NumberStateTest {
 
   @Test
   void div() {
-    assertEquals(testInt.div(testFloat) ,numberState.div(testInt, testFloat));
+    assertEquals(testInt.div(testFloat), numberState.div(testInt, testFloat));
     assertEquals(testInt.div(testBin), numberState.div(testInt, testBin));
     assertNull(numberState.div(testInt, testString));
     assertNull(numberState.div(testFloat, testBool));

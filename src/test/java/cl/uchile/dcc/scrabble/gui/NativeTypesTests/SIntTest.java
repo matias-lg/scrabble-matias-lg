@@ -4,11 +4,11 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
-import cl.uchile.dcc.scrabble.gui.natives.INumber;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INumber;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -29,6 +29,7 @@ public class SIntTest {
   private SFloat randomSF;
   private SInt randomSI;
   private SBinary randomSB;
+
   /*  Se crea un SInt aleatorio en cada iteración con el fin de hacer los test más generales */
   @BeforeEach
   public void setUp() {
@@ -39,7 +40,7 @@ public class SIntTest {
     /* other types for operations */
     randomDouble = rng.nextDouble();
     randomInt = rng.nextInt();
-    randomBin = random(20, 0, 2, false, true, new char[] {'0', '1'}, rng);
+    randomBin = random(20, 0, 2, false, true, new char[]{'0', '1'}, rng);
     randomSF = new SFloat(randomDouble);
     randomSI = new SInt(randomInt);
     randomSB = new SBinary(randomBin);
@@ -136,12 +137,14 @@ public class SIntTest {
     var zeroInt = new SInt(0);
     assertEquals(new SBinary("0"), zeroInt.toSBinary());
     assertEquals(new SBinary("11111111111111111111111111111111"), new SInt(-1).toSBinary());
-    assertEquals(new SBinary("01111111111111111111111111111111"), new SInt(Integer.MAX_VALUE).toSBinary());
-    assertEquals(new SBinary("10000000000000000000000000000000"), new SInt(Integer.MIN_VALUE).toSBinary());
+    assertEquals(new SBinary("01111111111111111111111111111111"),
+        new SInt(Integer.MAX_VALUE).toSBinary());
+    assertEquals(new SBinary("10000000000000000000000000000000"),
+        new SInt(Integer.MIN_VALUE).toSBinary());
     /* test both negative and positive numbers */
-    SInt opposite = new SInt(testInt*-1);
+    SInt opposite = new SInt(testInt * -1);
     String bin = Integer.toBinaryString(testInt);
-    String oppositeBin = Integer.toBinaryString(testInt*-1);
+    String oppositeBin = Integer.toBinaryString(testInt * -1);
     var sbin = new SBinary(bin);
     var nSbin = new SBinary(oppositeBin);
     assertEquals(sbin, testSInt.toSBinary());
@@ -150,29 +153,29 @@ public class SIntTest {
 
   @RepeatedTest(20)
   public void addTest() {
-    assertEquals(new SFloat(randomInt + randomDouble),randomSI.add(randomSF));
-    assertEquals(new SInt(randomInt + Integer.parseInt(randomBin, 2)),randomSI.add(randomSB));
-    assertEquals(new SInt(randomInt + testInt),randomSI.add(testSInt));
+    assertEquals(new SFloat(randomInt + randomDouble), randomSI.add(randomSF));
+    assertEquals(new SInt(randomInt + Integer.parseInt(randomBin, 2)), randomSI.add(randomSB));
+    assertEquals(new SInt(randomInt + testInt), randomSI.add(testSInt));
   }
 
   @RepeatedTest(20)
   public void subsTest() {
-    assertEquals(new SFloat(randomInt - randomDouble),randomSI.subs(randomSF));
-    assertEquals(new SInt(randomInt - Integer.parseInt(randomBin, 2)),randomSI.subs(randomSB));
-    assertEquals(new SInt(randomInt - testInt),randomSI.subs(testSInt));
+    assertEquals(new SFloat(randomInt - randomDouble), randomSI.subs(randomSF));
+    assertEquals(new SInt(randomInt - Integer.parseInt(randomBin, 2)), randomSI.subs(randomSB));
+    assertEquals(new SInt(randomInt - testInt), randomSI.subs(testSInt));
   }
 
   @RepeatedTest(20)
   public void multTest() {
-    assertEquals(new SFloat(randomInt * randomDouble),randomSI.mult(randomSF));
-    assertEquals(new SInt(randomInt * Integer.parseInt(randomBin, 2)),randomSI.mult(randomSB));
-    assertEquals(new SInt(randomInt * testInt),randomSI.mult(testSInt));
+    assertEquals(new SFloat(randomInt * randomDouble), randomSI.mult(randomSF));
+    assertEquals(new SInt(randomInt * Integer.parseInt(randomBin, 2)), randomSI.mult(randomSB));
+    assertEquals(new SInt(randomInt * testInt), randomSI.mult(testSInt));
   }
 
   @RepeatedTest(20)
   public void divTest() {
-    assertEquals(new SFloat(randomInt / randomDouble),randomSI.div(randomSF));
-    assertEquals(new SInt(randomInt / Integer.parseInt(randomBin, 2)),randomSI.div(randomSB));
-    assertEquals(new SInt(randomInt / testInt),randomSI.div(testSInt));
+    assertEquals(new SFloat(randomInt / randomDouble), randomSI.div(randomSF));
+    assertEquals(new SInt(randomInt / Integer.parseInt(randomBin, 2)), randomSI.div(randomSB));
+    assertEquals(new SInt(randomInt / testInt), randomSI.div(testSInt));
   }
 }

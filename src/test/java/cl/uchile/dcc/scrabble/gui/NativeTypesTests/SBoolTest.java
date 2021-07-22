@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -28,7 +28,7 @@ public class SBoolTest {
     scrabbleFalse = new SBool(false);
     int seed = new Random().nextInt();
     rng = new Random(seed);
-    randombinary = random(STR_SIZE, 0, 2, false, true, new char[] {'0', '1'}, rng);
+    randombinary = random(STR_SIZE, 0, 2, false, true, new char[]{'0', '1'}, rng);
   }
 
   @Test
@@ -69,8 +69,9 @@ public class SBoolTest {
     assertEquals(falseScrabbleString, scrabbleFalse.toSString());
     assertNotEquals(falseScrabbleString, scrabbleTrue.toSString());
   }
+
   @RepeatedTest(20)
-  void andTest(){
+  void andTest() {
     /* with SBool */
     assertEquals(scrabbleFalse, scrabbleTrue.and(scrabbleFalse));
     assertEquals(scrabbleFalse, scrabbleFalse.and(scrabbleTrue));
@@ -90,7 +91,7 @@ public class SBoolTest {
   }
 
   @RepeatedTest(20)
-  void orTest(){
+  void orTest() {
     /* with SBool */
     assertEquals(scrabbleTrue, scrabbleTrue.or(scrabbleFalse));
     assertEquals(scrabbleTrue, scrabbleFalse.or(scrabbleTrue));
@@ -108,8 +109,9 @@ public class SBoolTest {
     assertEquals(new SBinary("1".repeat(STR_SIZE)), scrabbleTrue.or(someBin));
     assertEquals(someBin, scrabbleFalse.or(someBin));
   }
+
   @Test
-  void notTest(){
+  void notTest() {
     assertEquals(scrabbleTrue, scrabbleFalse.not());
     assertEquals(scrabbleFalse, scrabbleTrue.not());
   }

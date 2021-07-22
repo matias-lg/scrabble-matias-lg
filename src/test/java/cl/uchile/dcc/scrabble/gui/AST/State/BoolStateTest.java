@@ -4,17 +4,17 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import cl.uchile.dcc.scrabble.gui.AST.State.BoolState;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BoolStateTest {
+
   private SInt testInt;
   private SFloat testFloat;
   private SBinary testBin;
@@ -30,7 +30,7 @@ class BoolStateTest {
     rng = new Random(seed);
     testInt = new SInt(rng.nextInt());
     testFloat = new SFloat(rng.nextDouble());
-    var randomString = random(20, 0, 2, false, true, new char[] {'0', '1'}, rng);
+    var randomString = random(20, 0, 2, false, true, new char[]{'0', '1'}, rng);
     testBin = new SBinary(randomString);
     testString = new SString("This is a constant String");
   }

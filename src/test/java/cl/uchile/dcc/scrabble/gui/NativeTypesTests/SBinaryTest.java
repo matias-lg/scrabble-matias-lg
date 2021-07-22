@@ -4,10 +4,10 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -107,7 +107,7 @@ public class SBinaryTest {
     var expected = new SInt(posInt);
     // use Java's implementation to get the correct String
     String neg = Integer.toBinaryString(negativeInt);
-    String pos = "0"+Integer.toBinaryString(posInt);
+    String pos = "0" + Integer.toBinaryString(posInt);
     var posBinary = new SBinary(pos);
     var negBinary = new SBinary(neg);
     assertEquals(new SInt(Integer.MAX_VALUE),
@@ -127,7 +127,7 @@ public class SBinaryTest {
   }
 
   @RepeatedTest(20)
-  public void addTest(){
+  public void addTest() {
     /* with SInt */
     SInt zero = new SInt(0);
     int randomInt = rng.nextInt();
@@ -148,7 +148,7 @@ public class SBinaryTest {
   }
 
   @RepeatedTest(20)
-  public void subsTest(){
+  public void subsTest() {
     /* with SInt */
     SInt zero = new SInt(0);
     int randomInt = rng.nextInt();
@@ -169,7 +169,7 @@ public class SBinaryTest {
   }
 
   @RepeatedTest(20)
-  public void divTest(){
+  public void divTest() {
     /* with SInt */
     SInt zero = new SInt(0);
     int randomInt = rng.nextInt();
@@ -190,7 +190,7 @@ public class SBinaryTest {
   }
 
   @RepeatedTest(20)
-  public void multTest(){
+  public void multTest() {
     /* with SInt */
     SInt zero = new SInt(0);
     int randomInt = rng.nextInt();
@@ -211,12 +211,12 @@ public class SBinaryTest {
   }
 
   @Test
-  public void orTest(){
+  public void orTest() {
     /* With SBinary */
-      assertEquals(ZERO.or(ONE), new SBinary("1"));
-      assertEquals(new SBinary("1110").or(new SBinary("1")), new SBinary("1111"));
-      assertEquals(new SBinary("10001").or(new SBinary("1110")), new SBinary("11111"));
-      /* With SBool */
+    assertEquals(ZERO.or(ONE), new SBinary("1"));
+    assertEquals(new SBinary("1110").or(new SBinary("1")), new SBinary("1111"));
+    assertEquals(new SBinary("10001").or(new SBinary("1110")), new SBinary("11111"));
+    /* With SBool */
     var strue = new SBool(true);
     var sfalse = new SBool(false);
     assertEquals(ONE.or(sfalse), ONE);
@@ -226,8 +226,9 @@ public class SBinaryTest {
     assertEquals(new SBinary("1110").or(strue), new SBinary("1111"));
     assertEquals(new SBinary("10001").or(sfalse), new SBinary("10001"));
   }
+
   @Test
-  public void andTest(){
+  public void andTest() {
     assertEquals(ZERO.and(ONE), new SBinary("0"));
     assertEquals(new SBinary("1110").and(new SBinary("1")), new SBinary("1110"));
     assertEquals(new SBinary("10001").and(new SBinary("1110")), new SBinary("10000"));
@@ -243,7 +244,7 @@ public class SBinaryTest {
   }
 
   @Test
-  public void notTest(){
+  public void notTest() {
     assertEquals(ONE, ZERO.not());
     assertEquals(ZERO, ONE.not());
     assertEquals(new SBinary("101010"), new SBinary("010101").not());

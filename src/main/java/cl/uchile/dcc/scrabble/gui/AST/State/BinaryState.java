@@ -1,10 +1,10 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.natives.IInteger;
-import cl.uchile.dcc.scrabble.gui.natives.INative;
-import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.IInteger;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
 
 public class BinaryState implements State {
 

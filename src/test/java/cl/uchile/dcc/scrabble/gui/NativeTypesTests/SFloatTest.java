@@ -5,10 +5,10 @@ import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SString;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SString;
 import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -39,7 +39,7 @@ public class SFloatTest {
     /* other types for operations */
     randomDouble = rng.nextDouble();
     randomInt = rng.nextInt();
-    randomBin = random(20, 0, 2, false, true, new char[] {'0', '1'}, rng);
+    randomBin = random(20, 0, 2, false, true, new char[]{'0', '1'}, rng);
     randomSF = new SFloat(randomDouble);
     randomSI = new SInt(randomInt);
     randomSB = new SBinary(randomBin);
@@ -99,30 +99,32 @@ public class SFloatTest {
 
   @RepeatedTest(20)
   public void addTest() {
-    assertEquals(new SFloat(randomDouble + randomInt),randomSF.add(randomSI));
-    assertEquals(new SFloat(randomDouble + Integer.parseInt(randomBin, 2)),randomSF.add(randomSB));
-    assertEquals(new SFloat(randomDouble + testDouble),randomSF.add(testSFloat));
+    assertEquals(new SFloat(randomDouble + randomInt), randomSF.add(randomSI));
+    assertEquals(new SFloat(randomDouble + Integer.parseInt(randomBin, 2)), randomSF.add(randomSB));
+    assertEquals(new SFloat(randomDouble + testDouble), randomSF.add(testSFloat));
   }
 
   @RepeatedTest(20)
   public void subsTest() {
-    assertEquals(new SFloat(randomDouble - randomInt),randomSF.subs(randomSI));
-    assertEquals(new SFloat(randomDouble - Integer.parseInt(randomBin, 2)),randomSF.subs(randomSB));
-    assertEquals(new SFloat(randomDouble - testDouble),randomSF.subs(testSFloat));
+    assertEquals(new SFloat(randomDouble - randomInt), randomSF.subs(randomSI));
+    assertEquals(new SFloat(randomDouble - Integer.parseInt(randomBin, 2)),
+        randomSF.subs(randomSB));
+    assertEquals(new SFloat(randomDouble - testDouble), randomSF.subs(testSFloat));
   }
 
   @RepeatedTest(20)
   public void multTest() {
-    assertEquals(new SFloat(randomDouble * randomInt),randomSF.mult(randomSI));
-    assertEquals(new SFloat(randomDouble * Integer.parseInt(randomBin, 2)),randomSF.mult(randomSB));
-    assertEquals(new SFloat(randomDouble * testDouble),randomSF.mult(testSFloat));
+    assertEquals(new SFloat(randomDouble * randomInt), randomSF.mult(randomSI));
+    assertEquals(new SFloat(randomDouble * Integer.parseInt(randomBin, 2)),
+        randomSF.mult(randomSB));
+    assertEquals(new SFloat(randomDouble * testDouble), randomSF.mult(testSFloat));
   }
 
   @RepeatedTest(20)
   public void divTest() {
-    assertEquals(new SFloat(randomDouble / randomInt),randomSF.div(randomSI));
-    assertEquals(new SFloat(randomDouble / Integer.parseInt(randomBin, 2)),randomSF.div(randomSB));
-    assertEquals(new SFloat(randomDouble / testDouble),randomSF.div(testSFloat));
+    assertEquals(new SFloat(randomDouble / randomInt), randomSF.div(randomSI));
+    assertEquals(new SFloat(randomDouble / Integer.parseInt(randomBin, 2)), randomSF.div(randomSB));
+    assertEquals(new SFloat(randomDouble / testDouble), randomSF.div(testSFloat));
   }
 
   @Test

@@ -1,9 +1,9 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
-import cl.uchile.dcc.scrabble.gui.natives.INumber;
-import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
-import cl.uchile.dcc.scrabble.gui.natives.operations.INumberOperable;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INumber;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.operations.INumberOperable;
 
 public class NumberState implements State {
 

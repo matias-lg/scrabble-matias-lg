@@ -7,14 +7,14 @@ import cl.uchile.dcc.scrabble.gui.AST.Nodes.Add;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Mult;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Not;
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.Or;
-import cl.uchile.dcc.scrabble.gui.AST.State.OpState;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBinary;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SBool;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SFloat;
-import cl.uchile.dcc.scrabble.gui.nativeClasses.SInt;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBinary;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SBool;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SFloat;
+import cl.uchile.dcc.scrabble.gui.natives.nativeClasses.SInt;
 import org.junit.jupiter.api.Test;
 
 class OpStateTest {
+
   private Add addNode = new Add(new SInt(1), new SFloat(2)); // 3.0
   private Or orNode = new Or(new SBinary("0"), new SBool(true)); // 1
   private Mult multNode = new Mult(new SFloat(1), new SBinary("1")); // 1
@@ -38,7 +38,7 @@ class OpStateTest {
   @Test
   void div() {
     assertEquals(new SFloat(3.0), opState.div(addNode, orNode));
-    assertEquals(new SFloat(1.0/3.0), opState.div(multNode, addNode));
+    assertEquals(new SFloat(1.0 / 3.0), opState.div(multNode, addNode));
     assertNull(opState.div(notNode, addNode));
   }
 

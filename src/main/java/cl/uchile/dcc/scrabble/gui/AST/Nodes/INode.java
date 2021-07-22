@@ -1,6 +1,6 @@
 package cl.uchile.dcc.scrabble.gui.AST.Nodes;
 
-import cl.uchile.dcc.scrabble.gui.natives.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
 
 /**
  * AST Nodes
@@ -10,6 +10,6 @@ public interface INode {
   /**
    * Every Node of the AST must be capable of evaluating its value as a INative
    */
-  public INative eval();
+  public INative eval() throws StackOverflowError;
 
 }

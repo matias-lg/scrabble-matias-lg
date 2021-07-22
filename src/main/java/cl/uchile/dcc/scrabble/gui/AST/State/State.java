@@ -1,8 +1,8 @@
 package cl.uchile.dcc.scrabble.gui.AST.State;
 
 import cl.uchile.dcc.scrabble.gui.AST.Nodes.INode;
-import cl.uchile.dcc.scrabble.gui.natives.INative;
-import cl.uchile.dcc.scrabble.gui.natives.Ilogical;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.INative;
+import cl.uchile.dcc.scrabble.gui.natives.interfaces.Ilogical;
 
 public interface State {
 
