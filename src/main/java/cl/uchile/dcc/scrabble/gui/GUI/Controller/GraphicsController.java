@@ -132,11 +132,13 @@ public class GraphicsController {
   private void draw() {
     var rootTree = controller.getRootTree();
     var newTreeView = new TreeView<>(rootTree);
+
     // when clicking on a Node it will be set to active
     newTreeView.getSelectionModel()
         .selectedItemProperty()
         .addListener((observable, oldValue, newValue) -> controller.setActiveNode(
             (AstNodeWrapper) newValue)); // our tree consists only in nodewrappers => safe cast
+
     var rootTreePane = new StackPane();
     rootTreePane.getChildren().add(newTreeView);
     // replace old tree with updated tree
@@ -158,5 +160,6 @@ public class GraphicsController {
    */
   public void clearTree() {
     controller.clearTree();
+    draw();
   }
 }

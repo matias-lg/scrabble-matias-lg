@@ -27,3 +27,17 @@ var f = new Factory();
 f.setAST(new Add(new Mult(f.createSFloat(1.0), f.createSInt(10)), new Or(f.createSBinary("0"), f.createSBool(true))));
 f.evalAST() // SFloat(11)
 ```
+## Model-View-Controller for the GUI
+
+The AST visualization was implemented using the MVC pattern, in the  ```GUI.Controller``` package you can find the Controller classes which modifify the View of the application, as the model we extend the ```TreeItem``` Class from JavaFX, to allow it to wrap AST's nodes implemented in the ```AST``` package. For memory management we use an AST node factory with a memory that keeps track of already created nodes for reutilizing them.
+
+
+## Using the GUI
+
+Clone the repository and then open it in IntelliJ, after building it run the ```View.java``` file from ```GUI``` package.
+First, add a node to the AST by clicking on either an operation node or Type node in the left menu of the program, if you added an operation node, you can keep adding stuff on the empty nodes by selecting them and then clicking on another node on the left. Finally, you can evaluate the current AST by clicking on the "Evaluate Tree button".
+
+![demo](https://media4.giphy.com/media/A1ZdWQ5EsIyyE3qRJ7/giphy.gif?cid=790b7611f5bc1cac455d7bbdc6533a3152f097c4c2beda8b&rid=giphy.gif&ct=g)
+
+#### Invalid operation handling
+Invalid operations will return a ```SNull``` instance, this is reflected in the view as an "Invalid Operation" message.
